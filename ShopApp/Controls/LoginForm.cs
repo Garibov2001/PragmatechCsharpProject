@@ -1,4 +1,5 @@
 ﻿using ShopApp.Controls;
+using ShopApp.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,58 @@ namespace ShopApp
                 return;
             }
 
-            
+            if (!CheckUsername(usernameTextBox.Text))
+            {
+                MessageBox.Show("Daxil etdiyiniz username sistemde yoxdur");
+                return;
+            }
+
+            if (!CheckPassword(usernameTextBox.Text, passwordTextBox.Text))
+            {
+                MessageBox.Show("Daxil etdiyiniz sifre yalnisdir");
+                passwordTextBox.Text = String.Empty;
+                return;
+            }
+
+            MessageBox.Show("Accounta xos geldiniz");
+            usernameTextBox.Text = String.Empty;
+            passwordTextBox.Text = String.Empty;
+
+
+        }
+
+
+        private bool CheckUsername(string argUsername)
+        {
+            var users = Database.GetAll();
+
+            foreach (var user in users)
+            {
+                if (user.UserName == argUsername)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool CheckPassword(string argUsername, string argPassword)
+        {
+            var users = Database.GetAll();
+
+            foreach (var user in users)
+            {
+                if (user.UserName == argUsername)
+                {
+                    if (user.Password == argPassword)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void registerButton_Click(object sender, EventArgs e)

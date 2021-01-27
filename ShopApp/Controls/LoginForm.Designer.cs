@@ -42,7 +42,7 @@
             this.loginButton.Location = new System.Drawing.Point(279, 260);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(118, 23);
-            this.loginButton.TabIndex = 1;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -52,7 +52,7 @@
             this.usernameTextBox.Location = new System.Drawing.Point(279, 168);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(153, 20);
-            this.usernameTextBox.TabIndex = 2;
+            this.usernameTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -89,14 +89,14 @@
             this.passwordTextBox.Location = new System.Drawing.Point(279, 209);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(153, 20);
-            this.passwordTextBox.TabIndex = 6;
+            this.passwordTextBox.TabIndex = 2;
             // 
             // registerButton
             // 
             this.registerButton.Location = new System.Drawing.Point(431, 260);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(121, 23);
-            this.registerButton.TabIndex = 7;
+            this.registerButton.TabIndex = 4;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);

@@ -23,23 +23,50 @@ namespace ShopApp.Controls
         {
             if (string.IsNullOrEmpty(usernameTextBox.Text) 
                 || string.IsNullOrEmpty(nameTextBox.Text)
-                || string.IsNullOrEmpty(lastNameTextBox.Text))
+                || string.IsNullOrEmpty(lastNameTextBox.Text)
+                || string.IsNullOrEmpty(passwordTextBox.Text))
             {
                 MessageBox.Show("Zehmet olmasa butun xanalari doldurun");
                 return;
             }
 
-            var user = new User()
+
+            //Check for unique username
+            if (IsUserExist(usernameTextBox.Text))
+            {
+                MessageBox.Show("Bu username artiq sistemde var!");
+                return;
+            }
+
+            var newUser = new User()
             {
                 Name = nameTextBox.Text,
                 LastName = lastNameTextBox.Text,
-                UserName = usernameTextBox.Text
+                UserName = usernameTextBox.Text,
+                Password = passwordTextBox.Text         
             };
 
-            Database.AddUser(user);
+            Database.AddUser(newUser);
 
             MessageBox.Show("Account yaradildi");
             this.Close();
+        }
+
+
+
+        private bool IsUserExist(string argUsername)
+        {
+            var users = Database.GetAll();
+
+            foreach (var user in users)
+            {
+                if (user.UserName == argUsername)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
