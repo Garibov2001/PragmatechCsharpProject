@@ -11,6 +11,7 @@ namespace ShopApp.DataAccessLayer
     {
         //Database
         private static List<User> _users;
+        private static int _id;
         //Static constructor
         static Database()
         {
@@ -19,6 +20,10 @@ namespace ShopApp.DataAccessLayer
 
         public static void AddUser(User user)
         {
+            _id++;
+            user.ID = _id;
+            user.RegisterDate = DateTime.Now;
+
             _users.Add(user);
         }
 
