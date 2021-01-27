@@ -45,6 +45,7 @@
             this.loginButton.TabIndex = 1;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // usernameTextBox
             // 
@@ -98,8 +99,9 @@
             this.registerButton.TabIndex = 7;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // Form1
+            // ShopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,7 +113,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.loginButton);
-            this.Name = "Form1";
+            this.Name = "ShopApp";
             this.Text = "ShopApp";
             this.ResumeLayout(false);
             this.PerformLayout();
