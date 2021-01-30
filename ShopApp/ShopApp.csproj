@@ -78,6 +78,10 @@
     </Compile>
     <Compile Include="DataAccessLayer\Abstract\IEntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Concrete\EntityRepositoryBase.cs" />
+    <Compile Include="DataAccessLayer\Concrete\RoleDal.cs" />
+    <Compile Include="DataAccessLayer\Concrete\UserDal.cs" />
+    <Compile Include="DataAccessLayer\Concrete\UserRole.cs" />
+    <Compile Include="DataAccessLayer\Database.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Entities\Conrete\Authentication\Role.cs" />
     <Compile Include="Entities\Conrete\Authentication\User.cs" />
