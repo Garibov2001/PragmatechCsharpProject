@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShopApp.DataAccessLayer
 {
-    class Database
+    class UnitOfWork
     {
         public UserDal Users { get => new UserDal();}
         public UserRoleDal UsersRoles { get => new UserRoleDal(); }

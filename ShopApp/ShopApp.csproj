@@ -80,8 +80,8 @@
     <Compile Include="DataAccessLayer\Concrete\EntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Concrete\RoleDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\UserDal.cs" />
-    <Compile Include="DataAccessLayer\Concrete\UserRole.cs" />
-    <Compile Include="DataAccessLayer\Database.cs" />
+    <Compile Include="DataAccessLayer\Concrete\UserRoleDal.cs" />
+    <Compile Include="DataAccessLayer\UnitOfWork.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Entities\Conrete\Authentication\Role.cs" />
     <Compile Include="Entities\Conrete\Authentication\User.cs" />
@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202101301554583_authInit.cs" />
     <Compile Include="Migrations\202101301554583_authInit.designer.cs">
       <DependentUpon>202101301554583_authInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101302107296_authUpdate1.cs" />
+    <Compile Include="Migrations\202101302107296_authUpdate1.designer.cs">
+      <DependentUpon>202101302107296_authUpdate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -103,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101301554583_authInit.resx">
       <DependentUpon>202101301554583_authInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101302107296_authUpdate1.resx">
+      <DependentUpon>202101302107296_authUpdate1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

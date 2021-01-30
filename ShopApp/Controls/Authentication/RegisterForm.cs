@@ -1,8 +1,11 @@
-﻿using ShopApp.Validations;
+﻿using SalesManagement.Entities.Authentication;
+using ShopApp.DataAccessLayer;
+using ShopApp.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,9 +16,11 @@ namespace ShopApp.Controls.Authentication
 {
     public partial class RegisterForm : Form
     {
+        private UnitOfWork unitOfWork;
         public RegisterForm()
         {
             InitializeComponent();
+            unitOfWork = new UnitOfWork();
         }
 
         private void RegisterForm_Load(object sender, EventArgs e)
@@ -42,8 +47,29 @@ namespace ShopApp.Controls.Authentication
                 return;
             }
 
+            var newUser = new User
+            {
+                Name = txb_name.Text,
+                Surname = txb_surname.Text,
+                Email = txb_email.Text,
+                PhoneNumber = txb_phone.Text,
+                Password = txb_password.Text
+            };
 
+            if (!unitOfWork.Users.IsUniqueUser(newUser))
+            {
+                MessageBox.Show("Bu emaildə user artıq mövcüddur", "Yalnışlıqları düzəldin.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var user = unitOfWork.Users.Create(newUser);
+            var role = unitOfWork.Roles.Get(x => x.Name == "Customer");
+
+            unitOfWork.UsersRoles.Create(
+                new UserRole {RoleID = role.ID, UserID = user.ID });
+
+            MessageBox.Show("Accountunuz uğurla yaradıldı", "Bildiriş", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

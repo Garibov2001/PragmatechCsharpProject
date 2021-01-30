@@ -14,23 +14,25 @@ namespace ShopApp.DataAccessLayer
     public class EntityRepositoryBase<T> : IEntityRepository<T>
         where T : class, IEntity, new()
     {
-        public void Create(T entity)
+
+        public virtual T Create(T entity)
         {
             using (var context = new SalesManagementContext())
             {              
                 try
                 {
-                    context.Set<T>().Add(entity);
+                    T newEntity =  context.Set<T>().Add(entity);
                     context.SaveChanges();
+                    return newEntity;
                 }
                 catch (Exception)
                 {
-                    return;
+                    return null;
                 }
             }
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             using (var context = new SalesManagementContext())
             {
@@ -47,7 +49,7 @@ namespace ShopApp.DataAccessLayer
             }
         }
 
-        public T Get(Expression<Func<T, bool>> expression = null)
+        public virtual T Get(Expression<Func<T, bool>> expression = null)
         {
             using (var context = new SalesManagementContext())
             {
@@ -62,7 +64,7 @@ namespace ShopApp.DataAccessLayer
             }
         }
 
-        public List<T> GetAll(Expression<Func<T, bool>> expression = null)
+        public virtual List<T> GetAll(Expression<Func<T, bool>> expression = null)
         {
             using (var context = new SalesManagementContext())
             {
@@ -78,7 +80,7 @@ namespace ShopApp.DataAccessLayer
             }
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             using (var context = new SalesManagementContext())
             {

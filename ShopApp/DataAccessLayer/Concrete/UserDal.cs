@@ -1,4 +1,5 @@
-﻿using SalesManagement.Entities.Authentication;
+﻿using SalesManagement.Entities;
+using SalesManagement.Entities.Authentication;
 using ShopApp.DataAccessLayer.Abstract;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,15 @@ namespace ShopApp.DataAccessLayer.Concrete
 {
     class UserDal : EntityRepositoryBase<User>
     {
+        public bool IsUniqueUser(User entity)
+        {
+            if (Get(x => x.Email == entity.Email) == null)
+            {
+                return true;
+            }
+
+            return false;
+        }
 
     }
 }

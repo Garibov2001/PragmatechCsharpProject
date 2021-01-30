@@ -13,7 +13,7 @@ namespace ShopApp.DataAccessLayer.Abstract
     {
         List<T> GetAll(Expression<Func<T, bool>> expression = null);
         T Get(Expression<Func<T, bool>> expression = null);
-        void Create(T entity);
+        T Create(T entity);
         void Update(T entity);
         void Delete(T entity);
     }
