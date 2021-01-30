@@ -60,9 +60,10 @@
             this.btn_register.Location = new System.Drawing.Point(153, 326);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(95, 37);
-            this.btn_register.TabIndex = 12;
+            this.btn_register.TabIndex = 7;
             this.btn_register.Text = "Register";
             this.btn_register.UseVisualStyleBackColor = true;
+            this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
             // 
             // lbl_name
             // 
@@ -80,8 +81,7 @@
             this.txb_name.Location = new System.Drawing.Point(12, 96);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(169, 27);
-            this.txb_name.TabIndex = 7;
-            this.txb_name.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txb_name.TabIndex = 1;
             // 
             // lbl_surname
             // 
@@ -99,7 +99,7 @@
             this.txb_surname.Location = new System.Drawing.Point(224, 96);
             this.txb_surname.Name = "txb_surname";
             this.txb_surname.Size = new System.Drawing.Size(168, 27);
-            this.txb_surname.TabIndex = 13;
+            this.txb_surname.TabIndex = 2;
             // 
             // lbl_phone
             // 
@@ -117,7 +117,7 @@
             this.txb_phone.Location = new System.Drawing.Point(228, 181);
             this.txb_phone.Name = "txb_phone";
             this.txb_phone.Size = new System.Drawing.Size(168, 27);
-            this.txb_phone.TabIndex = 19;
+            this.txb_phone.TabIndex = 4;
             // 
             // lbl_email
             // 
@@ -135,7 +135,7 @@
             this.txb_email.Location = new System.Drawing.Point(16, 181);
             this.txb_email.Name = "txb_email";
             this.txb_email.Size = new System.Drawing.Size(165, 27);
-            this.txb_email.TabIndex = 17;
+            this.txb_email.TabIndex = 3;
             // 
             // lbl_confirm
             // 
@@ -153,7 +153,7 @@
             this.txb_confirm_password.Location = new System.Drawing.Point(228, 269);
             this.txb_confirm_password.Name = "txb_confirm_password";
             this.txb_confirm_password.Size = new System.Drawing.Size(168, 27);
-            this.txb_confirm_password.TabIndex = 23;
+            this.txb_confirm_password.TabIndex = 6;
             // 
             // lbl_password
             // 
@@ -171,7 +171,7 @@
             this.txb_password.Location = new System.Drawing.Point(16, 269);
             this.txb_password.Name = "txb_password";
             this.txb_password.Size = new System.Drawing.Size(165, 27);
-            this.txb_password.TabIndex = 21;
+            this.txb_password.TabIndex = 5;
             // 
             // RegisterForm
             // 

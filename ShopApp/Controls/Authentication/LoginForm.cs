@@ -16,5 +16,11 @@ namespace ShopApp.Controls.Authentication
         {
             InitializeComponent();
         }
+
+        private void btn_register_Click(object sender, EventArgs e)
+        {
+            RegisterForm regForm = new RegisterForm();
+            regForm.ShowDialog();
+        }
     }
 }
