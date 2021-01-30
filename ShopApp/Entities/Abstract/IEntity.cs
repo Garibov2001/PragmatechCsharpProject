@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SalesManagement.Entities.Abstract
 {
-    interface IEntity
+    public interface IEntity
     {
         public int ID { get; set; }
     }

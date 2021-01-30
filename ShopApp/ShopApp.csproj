@@ -76,6 +76,8 @@
     <Compile Include="Controls\Authentication\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataAccessLayer\Abstract\IEntityRepositoryBase.cs" />
+    <Compile Include="DataAccessLayer\Concrete\EntityRepositoryBase.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Entities\Conrete\Authentication\Role.cs" />
     <Compile Include="Entities\Conrete\Authentication\User.cs" />
@@ -122,7 +124,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataAccessLayer\" />
     <Folder Include="Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
