@@ -132,6 +132,7 @@
             this.btn_addProduct.TabIndex = 5;
             this.btn_addProduct.Text = "Əlavə et";
             this.btn_addProduct.UseVisualStyleBackColor = true;
+            this.btn_addProduct.Click += new System.EventHandler(this.btn_addProduct_Click);
             // 
             // AddProductForm
             // 

@@ -119,6 +119,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ComboboxItem.cs" />
     <Compile Include="Validations\AddProductFormValidation.cs" />
     <Compile Include="Validations\RegisterFormValidation.cs" />
     <EmbeddedResource Include="Controls\AccountForm.resx">
