@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Text;
 using System.Data.Entity;
 using SalesManagement.Entities.Authentication;
+using ShopApp.Entities.Conrete.Product;
 
 namespace SalesManagement.Entities
 {
@@ -19,13 +20,9 @@ namespace SalesManagement.Entities
         public DbSet<User> User { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<User>().HasKey(x => x.ID);
-        //    modelBuilder.Entity<UserRole>().HasKey(x => x.ID);
-        //    modelBuilder.Entity<Role>().HasKey(x => x.ID);
-        //}
 
     }
 }
