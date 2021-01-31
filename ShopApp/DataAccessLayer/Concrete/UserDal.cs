@@ -22,5 +22,9 @@ namespace ShopApp.DataAccessLayer.Concrete
             return false;
         }
 
+        public User CheckAccount(string _password, string _email)
+        {
+            return Get(x => x.Password == _password && x.Email == _email);
+        }          
     }
 }

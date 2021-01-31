@@ -1,4 +1,5 @@
-﻿using ShopApp.Controls.Authentication;
+﻿using ShopApp.Controls;
+using ShopApp.Controls.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Linq;

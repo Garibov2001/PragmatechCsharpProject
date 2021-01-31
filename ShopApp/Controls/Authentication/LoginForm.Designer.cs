@@ -61,9 +61,10 @@
             this.btn_login.Location = new System.Drawing.Point(286, 290);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(95, 37);
-            this.btn_login.TabIndex = 2;
+            this.btn_login.TabIndex = 3;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // lbl_email
             // 
@@ -91,7 +92,7 @@
             this.txb_password.Location = new System.Drawing.Point(286, 237);
             this.txb_password.Name = "txb_password";
             this.txb_password.Size = new System.Drawing.Size(213, 27);
-            this.txb_password.TabIndex = 4;
+            this.txb_password.TabIndex = 2;
             // 
             // btn_register
             // 
@@ -99,7 +100,7 @@
             this.btn_register.Location = new System.Drawing.Point(422, 290);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(95, 37);
-            this.btn_register.TabIndex = 6;
+            this.btn_register.TabIndex = 4;
             this.btn_register.Text = "Register";
             this.btn_register.UseVisualStyleBackColor = true;
             this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
