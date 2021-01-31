@@ -1,5 +1,6 @@
 ﻿using SalesManagement.Entities.Authentication;
 using ShopApp.Controls.Authentication;
+using ShopApp.Controls.Products;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,12 @@ namespace ShopApp.Controls
         private void AccountForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             LoginForm.Close();
+        }
+
+        private void btn_addProduct_Click(object sender, EventArgs e)
+        {
+            var addProductForm = new AddProductForm();
+            addProductForm.ShowDialog();
         }
     }
 }
