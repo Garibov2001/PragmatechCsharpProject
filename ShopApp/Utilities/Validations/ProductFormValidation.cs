@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopApp.Validations
 {
-    public static class AddProductFormValidation
+    public static class ProductFormValidation
     {
         public static bool IsValidName(string argName, StringBuilder feedback)
         {

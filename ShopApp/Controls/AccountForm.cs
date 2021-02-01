@@ -136,6 +136,19 @@ namespace ShopApp.Controls
             // 0 - edit (because of datagrid bug i have to write or condition)
             if (e.ColumnIndex == 0 || e.ColumnIndex == dgw_myProducts.Columns.Count - 2)
             {
+                foreach (DataGridViewCell cell in dgw_myProducts.CurrentRow.Cells)
+                {
+                    string name = dgw_myProducts.Columns[cell.ColumnIndex].Name;
+                    if (name == "ID")
+                    {
+                        var productID = (int)cell.Value;
+                        var product = _unitOfWork.Products.Get(x => x.ID == productID);
+
+                        var editProductForm = new EditProductForm(product);
+                        editProductForm.ShowDialog();                        
+                        break;
+                    }
+                }
             }
             // 1 - remove
             else if (e.ColumnIndex == 1 || e.ColumnIndex == dgw_myProducts.Columns.Count - 1)

@@ -42,12 +42,10 @@ namespace ShopApp.Controls.Products
 
             var feedback = new StringBuilder();
 
-            validationResult.Add(AddProductFormValidation.IsValidName(txb_name.Text, feedback));
-            validationResult.Add(AddProductFormValidation.IsValidPrice(txb_price.Text, feedback));
-            validationResult.Add(AddProductFormValidation.IsValidCount(txb_count.Text, feedback));
-            validationResult.Add(AddProductFormValidation.IsValidCategory(cmb_category.SelectedItem, feedback));
-
-            var test = cmb_category.SelectedItem;
+            validationResult.Add(ProductFormValidation.IsValidName(txb_name.Text, feedback));
+            validationResult.Add(ProductFormValidation.IsValidPrice(txb_price.Text, feedback));
+            validationResult.Add(ProductFormValidation.IsValidCount(txb_count.Text, feedback));
+            validationResult.Add(ProductFormValidation.IsValidCategory(cmb_category.SelectedItem, feedback));
 
             if (validationResult.Any(elem => elem == false))
             {
