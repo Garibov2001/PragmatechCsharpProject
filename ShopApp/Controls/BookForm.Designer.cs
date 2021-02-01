@@ -1,6 +1,6 @@
-﻿namespace ShopApp
+﻿namespace ShopApp.Controls
 {
-    partial class Form1
+    partial class BookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // BookForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(807, 450);
+            this.Name = "BookForm";
+            this.Text = "BookForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookForm_FormClosing);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
