@@ -33,9 +33,9 @@
             this.dgw_allProducts = new System.Windows.Forms.DataGridView();
             this.pg_myProducts = new System.Windows.Forms.TabPage();
             this.btn_addProduct = new System.Windows.Forms.Button();
-            this.cmb_filter = new System.Windows.Forms.ComboBox();
+            this.cmb_my_products_search = new System.Windows.Forms.ComboBox();
             this.lbl_filter = new System.Windows.Forms.Label();
-            this.txb_search = new System.Windows.Forms.TextBox();
+            this.txb_my_products_search = new System.Windows.Forms.TextBox();
             this.lbl_search = new System.Windows.Forms.Label();
             this.dgw_myProducts = new System.Windows.Forms.DataGridView();
             this.lbl_name_surname = new System.Windows.Forms.Label();
@@ -83,9 +83,9 @@
             // pg_myProducts
             // 
             this.pg_myProducts.Controls.Add(this.btn_addProduct);
-            this.pg_myProducts.Controls.Add(this.cmb_filter);
+            this.pg_myProducts.Controls.Add(this.cmb_my_products_search);
             this.pg_myProducts.Controls.Add(this.lbl_filter);
-            this.pg_myProducts.Controls.Add(this.txb_search);
+            this.pg_myProducts.Controls.Add(this.txb_my_products_search);
             this.pg_myProducts.Controls.Add(this.lbl_search);
             this.pg_myProducts.Controls.Add(this.dgw_myProducts);
             this.pg_myProducts.Location = new System.Drawing.Point(4, 25);
@@ -107,14 +107,15 @@
             this.btn_addProduct.UseVisualStyleBackColor = true;
             this.btn_addProduct.Click += new System.EventHandler(this.btn_addProduct_Click);
             // 
-            // cmb_filter
+            // cmb_my_products_search
             // 
-            this.cmb_filter.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.cmb_filter.FormattingEnabled = true;
-            this.cmb_filter.Location = new System.Drawing.Point(542, 48);
-            this.cmb_filter.Name = "cmb_filter";
-            this.cmb_filter.Size = new System.Drawing.Size(201, 24);
-            this.cmb_filter.TabIndex = 4;
+            this.cmb_my_products_search.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.cmb_my_products_search.FormattingEnabled = true;
+            this.cmb_my_products_search.Location = new System.Drawing.Point(542, 48);
+            this.cmb_my_products_search.Name = "cmb_my_products_search";
+            this.cmb_my_products_search.Size = new System.Drawing.Size(201, 24);
+            this.cmb_my_products_search.TabIndex = 4;
+            this.cmb_my_products_search.SelectedValueChanged += new System.EventHandler(this.cmb_my_products_search_SelectedValueChanged);
             // 
             // lbl_filter
             // 
@@ -125,13 +126,14 @@
             this.lbl_filter.TabIndex = 3;
             this.lbl_filter.Text = "Məhsulları kategoriyaya görə filterlə:";
             // 
-            // txb_search
+            // txb_my_products_search
             // 
-            this.txb_search.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.txb_search.Location = new System.Drawing.Point(20, 48);
-            this.txb_search.Name = "txb_search";
-            this.txb_search.Size = new System.Drawing.Size(169, 23);
-            this.txb_search.TabIndex = 2;
+            this.txb_my_products_search.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txb_my_products_search.Location = new System.Drawing.Point(20, 48);
+            this.txb_my_products_search.Name = "txb_my_products_search";
+            this.txb_my_products_search.Size = new System.Drawing.Size(169, 23);
+            this.txb_my_products_search.TabIndex = 2;
+            this.txb_my_products_search.TextChanged += new System.EventHandler(this.txb_my_products_search_TextChanged);
             // 
             // lbl_search
             // 
@@ -226,9 +228,9 @@
         private System.Windows.Forms.Label lbl_phone;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btn_addProduct;
-        private System.Windows.Forms.ComboBox cmb_filter;
+        private System.Windows.Forms.ComboBox cmb_my_products_search;
         private System.Windows.Forms.Label lbl_filter;
-        private System.Windows.Forms.TextBox txb_search;
+        private System.Windows.Forms.TextBox txb_my_products_search;
         private System.Windows.Forms.Label lbl_search;
         private System.Windows.Forms.DataGridView dgw_myProducts;
         private System.Windows.Forms.DataGridView dgw_allProducts;

@@ -2,13 +2,16 @@
 using ShopApp.Controls.Authentication;
 using ShopApp.Controls.Products;
 using ShopApp.DataAccessLayer;
+using ShopApp.Entities.Conrete.Product;
 using ShopApp.Enums;
+using ShopApp.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,12 +27,37 @@ namespace ShopApp.Controls
         {
             _unitOfWork = new UnitOfWork();
             LoginForm = _loginForm;
-            InitializeComponent();            
+            InitializeComponent();
+            FillSearchCategories(cmb_my_products_search);
         }
 
-        private void LoadAllProducts()
+        private void FillSearchCategories(ComboBox argController)
         {
-            var products = _unitOfWork.Products.GetAll();
+            argController.Items.Add(new ComboboxItem { Value = -1, Text = " -- Bütün məhsullar --" });
+
+            var categories = _unitOfWork.ProductCategories.GetAll();
+
+            foreach (var category in categories)
+            {
+                argController.Items.Add(new ComboboxItem { Value = category.ID, Text = category.Name });
+            }
+
+            foreach (ComboboxItem item in argController.Items)
+            {
+                if ((int)item.Value == -1)
+                {
+                    argController.SelectedIndex = argController.Items.IndexOf(item);
+                    break;
+                }
+            }
+        }
+
+        private void LoadAllProducts(Expression<Func<Product, bool>> expression = null)
+        {
+            // Only Aktiv products:
+            var products = expression == null
+                ? _unitOfWork.Products.GetAll(x => x.ProductStatus == (int)ProductStatus.Aktiv)
+                : _unitOfWork.Products.GetAll(expression);
 
             List<dynamic> wholeProducts = new List<dynamic>();
 
@@ -44,7 +72,6 @@ namespace ShopApp.Controls
                     User = _unitOfWork.Users.Get(x => x.ID == product.UserID).Name + " " + _unitOfWork.Users.Get(x => x.ID == product.UserID).Surname,
                     UserTel = _unitOfWork.Users.Get(x => x.ID == product.UserID).PhoneNumber,
                     Count = product.Count,
-                    Status = (ProductStatus)product.ProductStatus,
                 });
             }
             // Hide the id in the grid
@@ -60,9 +87,11 @@ namespace ShopApp.Controls
             }
         }
 
-        private void LoadPersonalProducts()
+        private void LoadPersonalProducts(Expression<Func<Product, bool>> expression = null)
         {
-            var products = _unitOfWork.Products.GetAll(x => x.UserID == CurrentUser.ID);
+            var products = expression == null 
+                ? _unitOfWork.Products.GetAll(x => x.UserID == CurrentUser.ID)
+                : _unitOfWork.Products.GetAll(expression);
 
             List<dynamic> wholeProducts = new List<dynamic>();
 
@@ -175,7 +204,36 @@ namespace ShopApp.Controls
             LoadPersonalProducts();
         }
 
+        private void txb_my_products_search_TextChanged(object sender, EventArgs e)
+        {
+            // Initialize the search combo box wih category "Butun mehsullar"
+            foreach (ComboboxItem item in cmb_my_products_search.Items)
+            {
+                if ((int)item.Value == -1)
+                {
+                    cmb_my_products_search.SelectedIndex = cmb_my_products_search.Items.IndexOf(item);
+                    break;
+                }
+            }
 
+            if (string.IsNullOrEmpty(txb_my_products_search.Text))            
+                LoadPersonalProducts();            
+            else            
+                LoadPersonalProducts(x=>x.UserID == CurrentUser.ID && x.Name.Contains(txb_my_products_search.Text));                                
+        }
 
+        private void cmb_my_products_search_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Initialize search text box
+            txb_my_products_search.Text = string.Empty;
+
+            int category_id = (int)(cmb_my_products_search.SelectedItem as ComboboxItem).Value;
+
+            // Condition is necessery because we have "Butun mehsullar" category
+            if (category_id > 0)            
+                LoadPersonalProducts(x => x.UserID == CurrentUser.ID && x.ProductCategoryID == category_id);           
+            else            
+                LoadPersonalProducts();            
+        }
     }
 }
