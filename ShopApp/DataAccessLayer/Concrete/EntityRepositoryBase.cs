@@ -25,8 +25,9 @@ namespace ShopApp.DataAccessLayer
                     context.SaveChanges();
                     return newEntity;
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    string message = e.Message;
                     return null;
                 }
             }

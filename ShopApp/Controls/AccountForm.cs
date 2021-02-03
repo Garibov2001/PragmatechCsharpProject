@@ -77,6 +77,7 @@ namespace ShopApp.Controls
             }
             // Hide the id in the grid
 
+            // Hide the id in the grid
             dgw_allProducts.Columns.Clear();
             dgw_allProducts.DataSource = wholeProducts;
 
@@ -84,6 +85,15 @@ namespace ShopApp.Controls
             if (dgw_allProducts.Columns.Count > 0)
             {
                 dgw_allProducts.Columns[0].Visible = false;
+
+                //Edit Button:
+                DataGridViewButtonColumn purchaseBtn = new DataGridViewButtonColumn();
+                purchaseBtn.HeaderText = "Satın al";
+                purchaseBtn.Name = "purchaseBtn";
+                purchaseBtn.Text = "Satın al";
+                purchaseBtn.UseColumnTextForButtonValue = true;
+
+                dgw_allProducts.Columns.Add(purchaseBtn);
             }
         }
 

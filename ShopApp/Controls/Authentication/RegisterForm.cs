@@ -53,7 +53,8 @@ namespace ShopApp.Controls.Authentication
                 Surname = txb_surname.Text,
                 Email = txb_email.Text,
                 PhoneNumber = txb_phone.Text,
-                Password = txb_password.Text
+                Password = txb_password.Text,
+                Balance = 500
             };
 
             if (!unitOfWork.Users.IsUniqueUser(newUser))
