@@ -53,7 +53,7 @@ namespace ShopApp.Controls
             }
         }
 
-        private void LoadAllProducts(Expression<Func<Product, bool>> expression = null)
+        public void LoadAllProducts(Expression<Func<Product, bool>> expression = null)
         {
             // Only Aktiv products:
             var products = expression == null
@@ -87,7 +87,7 @@ namespace ShopApp.Controls
             }
         }
 
-        private void LoadPersonalProducts(Expression<Func<Product, bool>> expression = null)
+        public void LoadPersonalProducts(Expression<Func<Product, bool>> expression = null)
         {
             var products = expression == null 
                 ? _unitOfWork.Products.GetAll(x => x.UserID == CurrentUser.ID)
@@ -272,6 +272,18 @@ namespace ShopApp.Controls
                 LoadAllProducts(x => x.ProductCategoryID == category_id);
             else
                 LoadAllProducts();
+        }
+
+        private void btn_detailed_search_Click(object sender, EventArgs e)
+        {
+            DetailedSearchForm searchForm = new DetailedSearchForm(this, true);
+            searchForm.Show();
+        }
+
+        private void btn_all_products_detailed_search_Click(object sender, EventArgs e)
+        {
+            DetailedSearchForm searchForm = new DetailedSearchForm(this, false);
+            searchForm.Show();
         }
     }
 }

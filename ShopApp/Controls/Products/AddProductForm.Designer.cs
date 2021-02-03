@@ -49,6 +49,7 @@
             this.label1.Size = new System.Drawing.Size(236, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Yeni məhsul əlavə et";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lbl_name
             // 
@@ -59,6 +60,7 @@
             this.lbl_name.Size = new System.Drawing.Size(32, 20);
             this.lbl_name.TabIndex = 1;
             this.lbl_name.Text = "Adı";
+            this.lbl_name.Click += new System.EventHandler(this.lbl_name_Click);
             // 
             // txb_name
             // 
@@ -67,6 +69,7 @@
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(144, 26);
             this.txb_name.TabIndex = 1;
+            this.txb_name.TextChanged += new System.EventHandler(this.txb_name_TextChanged);
             // 
             // txb_price
             // 
@@ -75,6 +78,7 @@
             this.txb_price.Name = "txb_price";
             this.txb_price.Size = new System.Drawing.Size(148, 26);
             this.txb_price.TabIndex = 2;
+            this.txb_price.TextChanged += new System.EventHandler(this.txb_price_TextChanged);
             // 
             // lbl_price
             // 
@@ -85,6 +89,7 @@
             this.lbl_price.Size = new System.Drawing.Size(58, 20);
             this.lbl_price.TabIndex = 3;
             this.lbl_price.Text = "Dəyəri ";
+            this.lbl_price.Click += new System.EventHandler(this.lbl_price_Click);
             // 
             // txb_count
             // 
@@ -93,6 +98,7 @@
             this.txb_count.Name = "txb_count";
             this.txb_count.Size = new System.Drawing.Size(144, 26);
             this.txb_count.TabIndex = 3;
+            this.txb_count.TextChanged += new System.EventHandler(this.txb_count_TextChanged);
             // 
             // lbl_count
             // 
@@ -103,6 +109,7 @@
             this.lbl_count.Size = new System.Drawing.Size(39, 20);
             this.lbl_count.TabIndex = 5;
             this.lbl_count.Text = "Sayı";
+            this.lbl_count.Click += new System.EventHandler(this.lbl_count_Click);
             // 
             // lbl_category
             // 
@@ -113,6 +120,7 @@
             this.lbl_category.Size = new System.Drawing.Size(95, 20);
             this.lbl_category.TabIndex = 7;
             this.lbl_category.Text = "Kateqoriyası";
+            this.lbl_category.Click += new System.EventHandler(this.lbl_category_Click);
             // 
             // cmb_category
             // 
@@ -122,6 +130,7 @@
             this.cmb_category.Name = "cmb_category";
             this.cmb_category.Size = new System.Drawing.Size(148, 26);
             this.cmb_category.TabIndex = 4;
+            this.cmb_category.SelectedIndexChanged += new System.EventHandler(this.cmb_category_SelectedIndexChanged);
             // 
             // btn_addProduct
             // 

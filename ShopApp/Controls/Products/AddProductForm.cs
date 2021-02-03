@@ -67,6 +67,51 @@ namespace ShopApp.Controls.Products
             MessageBox.Show("Məhsul uğurla əlavə olundu", "Bildiriş", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void cmb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_category_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txb_count_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_count_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txb_price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_price_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txb_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

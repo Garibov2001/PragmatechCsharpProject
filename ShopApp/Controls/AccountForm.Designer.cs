@@ -36,6 +36,7 @@
             this.lbl_by_name = new System.Windows.Forms.Label();
             this.dgw_allProducts = new System.Windows.Forms.DataGridView();
             this.pg_myProducts = new System.Windows.Forms.TabPage();
+            this.btn_my_products_detailed_search = new System.Windows.Forms.Button();
             this.btn_addProduct = new System.Windows.Forms.Button();
             this.cmb_my_products_search = new System.Windows.Forms.ComboBox();
             this.lbl_filter = new System.Windows.Forms.Label();
@@ -46,6 +47,7 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_phone = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
+            this.btn_all_products_detailed_search = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
@@ -66,6 +68,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btn_all_products_detailed_search);
             this.tabPage1.Controls.Add(this.cmb_all_products_search);
             this.tabPage1.Controls.Add(this.lb_filter_category);
             this.tabPage1.Controls.Add(this.txb_all_products_search);
@@ -83,7 +86,7 @@
             // cmb_all_products_search
             // 
             this.cmb_all_products_search.FormattingEnabled = true;
-            this.cmb_all_products_search.Location = new System.Drawing.Point(539, 44);
+            this.cmb_all_products_search.Location = new System.Drawing.Point(260, 43);
             this.cmb_all_products_search.Name = "cmb_all_products_search";
             this.cmb_all_products_search.Size = new System.Drawing.Size(202, 24);
             this.cmb_all_products_search.TabIndex = 4;
@@ -92,7 +95,7 @@
             // lb_filter_category
             // 
             this.lb_filter_category.AutoSize = true;
-            this.lb_filter_category.Location = new System.Drawing.Point(501, 15);
+            this.lb_filter_category.Location = new System.Drawing.Point(257, 15);
             this.lb_filter_category.Name = "lb_filter_category";
             this.lb_filter_category.Size = new System.Drawing.Size(240, 17);
             this.lb_filter_category.TabIndex = 3;
@@ -109,7 +112,7 @@
             // lbl_by_name
             // 
             this.lbl_by_name.AutoSize = true;
-            this.lbl_by_name.Location = new System.Drawing.Point(25, 15);
+            this.lbl_by_name.Location = new System.Drawing.Point(21, 15);
             this.lbl_by_name.Name = "lbl_by_name";
             this.lbl_by_name.Size = new System.Drawing.Size(186, 17);
             this.lbl_by_name.TabIndex = 1;
@@ -125,6 +128,7 @@
             // 
             // pg_myProducts
             // 
+            this.pg_myProducts.Controls.Add(this.btn_my_products_detailed_search);
             this.pg_myProducts.Controls.Add(this.btn_addProduct);
             this.pg_myProducts.Controls.Add(this.cmb_my_products_search);
             this.pg_myProducts.Controls.Add(this.lbl_filter);
@@ -138,6 +142,16 @@
             this.pg_myProducts.TabIndex = 1;
             this.pg_myProducts.Text = "Məhsullarım";
             this.pg_myProducts.UseVisualStyleBackColor = true;
+            // 
+            // btn_my_products_detailed_search
+            // 
+            this.btn_my_products_detailed_search.Location = new System.Drawing.Point(612, 42);
+            this.btn_my_products_detailed_search.Name = "btn_my_products_detailed_search";
+            this.btn_my_products_detailed_search.Size = new System.Drawing.Size(121, 35);
+            this.btn_my_products_detailed_search.TabIndex = 6;
+            this.btn_my_products_detailed_search.Text = "Detallı axtarış";
+            this.btn_my_products_detailed_search.UseVisualStyleBackColor = true;
+            this.btn_my_products_detailed_search.Click += new System.EventHandler(this.btn_detailed_search_Click);
             // 
             // btn_addProduct
             // 
@@ -154,16 +168,16 @@
             // 
             this.cmb_my_products_search.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmb_my_products_search.FormattingEnabled = true;
-            this.cmb_my_products_search.Location = new System.Drawing.Point(542, 48);
+            this.cmb_my_products_search.Location = new System.Drawing.Point(286, 48);
             this.cmb_my_products_search.Name = "cmb_my_products_search";
-            this.cmb_my_products_search.Size = new System.Drawing.Size(201, 24);
+            this.cmb_my_products_search.Size = new System.Drawing.Size(233, 24);
             this.cmb_my_products_search.TabIndex = 4;
             this.cmb_my_products_search.SelectedValueChanged += new System.EventHandler(this.cmb_my_products_search_SelectedValueChanged);
             // 
             // lbl_filter
             // 
             this.lbl_filter.AutoSize = true;
-            this.lbl_filter.Location = new System.Drawing.Point(507, 16);
+            this.lbl_filter.Location = new System.Drawing.Point(283, 16);
             this.lbl_filter.Name = "lbl_filter";
             this.lbl_filter.Size = new System.Drawing.Size(236, 17);
             this.lbl_filter.TabIndex = 3;
@@ -174,7 +188,7 @@
             this.txb_my_products_search.BackColor = System.Drawing.SystemColors.MenuBar;
             this.txb_my_products_search.Location = new System.Drawing.Point(20, 48);
             this.txb_my_products_search.Name = "txb_my_products_search";
-            this.txb_my_products_search.Size = new System.Drawing.Size(169, 23);
+            this.txb_my_products_search.Size = new System.Drawing.Size(194, 23);
             this.txb_my_products_search.TabIndex = 2;
             this.txb_my_products_search.TextChanged += new System.EventHandler(this.txb_my_products_search_TextChanged);
             // 
@@ -237,6 +251,16 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
+            // btn_all_products_detailed_search
+            // 
+            this.btn_all_products_detailed_search.Location = new System.Drawing.Point(609, 33);
+            this.btn_all_products_detailed_search.Name = "btn_all_products_detailed_search";
+            this.btn_all_products_detailed_search.Size = new System.Drawing.Size(123, 34);
+            this.btn_all_products_detailed_search.TabIndex = 5;
+            this.btn_all_products_detailed_search.Text = "Detallı axtarış";
+            this.btn_all_products_detailed_search.UseVisualStyleBackColor = true;
+            this.btn_all_products_detailed_search.Click += new System.EventHandler(this.btn_all_products_detailed_search_Click);
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,15 +297,17 @@
         private System.Windows.Forms.Label lbl_phone;
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btn_addProduct;
-        private System.Windows.Forms.ComboBox cmb_my_products_search;
+        public System.Windows.Forms.ComboBox cmb_my_products_search;
         private System.Windows.Forms.Label lbl_filter;
-        private System.Windows.Forms.TextBox txb_my_products_search;
+        public System.Windows.Forms.TextBox txb_my_products_search;
         private System.Windows.Forms.Label lbl_search;
         private System.Windows.Forms.DataGridView dgw_myProducts;
         private System.Windows.Forms.DataGridView dgw_allProducts;
         private System.Windows.Forms.Label lb_filter_category;
-        private System.Windows.Forms.TextBox txb_all_products_search;
+        public System.Windows.Forms.TextBox txb_all_products_search;
         private System.Windows.Forms.Label lbl_by_name;
-        private System.Windows.Forms.ComboBox cmb_all_products_search;
+        public System.Windows.Forms.ComboBox cmb_all_products_search;
+        private System.Windows.Forms.Button btn_my_products_detailed_search;
+        private System.Windows.Forms.Button btn_all_products_detailed_search;
     }
 }
