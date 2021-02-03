@@ -8,7 +8,8 @@ namespace ShopApp.Enums
 {
     public enum ProductStatus
     {
+        Passiv = 0,      
         Aktiv = 1,
-        Passiv = 0        
+        Deleted = 2
     }
 }

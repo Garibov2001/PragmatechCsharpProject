@@ -35,6 +35,11 @@ namespace ShopApp.Validations
                 feedback.Append("Productun Dəyəri yalnız ədədlərdən təşkil oluna bilər\n");
                 return false;
             }
+            else if (Convert.ToInt32(argPrice) < 1)
+            {
+                feedback.Append("Productun Dəyəri 0 dan boyuk olmalidir");
+                return false;
+            }
 
             return true;
         }
@@ -48,6 +53,11 @@ namespace ShopApp.Validations
             else if (argCount.Any(elem => !char.IsDigit(elem)))
             {
                 feedback.Append("Productun sayı yalnız ədədlərdən təşkil oluna bilər\n");
+                return false;
+            }
+            else if (Convert.ToInt32(argCount) < 1)
+            {
+                feedback.Append("Productun miqdari 0 dan boyuk olmalidir");
                 return false;
             }
 

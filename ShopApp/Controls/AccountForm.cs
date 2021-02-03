@@ -172,7 +172,11 @@ namespace ShopApp.Controls
                     {
                         var productID = (int)cell.Value;
                         var product = _unitOfWork.Products.Get(x => x.ID == productID);
-
+                        if (product.ProductStatus == (int)ProductStatus.Deleted)
+                        {
+                            MessageBox.Show("Silinmis mehsulu editlemek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
                         var editProductForm = new EditProductForm(product);
                         editProductForm.ShowDialog();                        
                         break;
@@ -193,7 +197,14 @@ namespace ShopApp.Controls
                         {
                             var productID = (int)cell.Value;
                             var product = _unitOfWork.Products.Get(x => x.ID == productID);
-                            _unitOfWork.Products.Delete(product);
+                            if (product.ProductStatus == (int)ProductStatus.Deleted)
+                            {
+                                MessageBox.Show("Silinmis mehsulu yeniden silmek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                return;
+                            }
+
+                            product.ProductStatus = (int)ProductStatus.Deleted;
+                            _unitOfWork.Products.Update(product);
                             break;
                         }
                     }                                            
@@ -219,7 +230,9 @@ namespace ShopApp.Controls
             if (string.IsNullOrEmpty(txb_my_products_search.Text))            
                 LoadPersonalProducts();            
             else            
-                LoadPersonalProducts(x=>x.UserID == CurrentUser.ID && x.Name.Contains(txb_my_products_search.Text));                                
+                LoadPersonalProducts(x=>
+                    x.UserID == CurrentUser.ID && 
+                    x.Name.Contains(txb_my_products_search.Text));                                
         }
 
         private void cmb_my_products_search_SelectedValueChanged(object sender, EventArgs e)
@@ -231,7 +244,9 @@ namespace ShopApp.Controls
 
             // Condition is necessery because we have "Butun mehsullar" category
             if (category_id > 0)            
-                LoadPersonalProducts(x => x.UserID == CurrentUser.ID && x.ProductCategoryID == category_id);           
+                LoadPersonalProducts(x => 
+                    x.UserID == CurrentUser.ID && 
+                    x.ProductCategoryID == category_id);           
             else            
                 LoadPersonalProducts();            
         }
