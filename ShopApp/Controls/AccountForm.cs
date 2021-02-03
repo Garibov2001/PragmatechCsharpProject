@@ -327,5 +327,61 @@ namespace ShopApp.Controls
             FillSearchCategories(cmb_all_products_search);
             LoadAllProducts();
         }
+
+        private void dgw_allProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewButtonCell buttonCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+
+                //Check button:
+                if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "purchaseBtn")
+                {
+                    //Get ID from row                    
+                    var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    var product = _unitOfWork.Products.Get(x => x.ID == productID);
+                    var buyer = CurrentUser;
+                    var seller = _unitOfWork.Users.Get(x => x.ID == product.UserID);
+
+                    if (buyer.ID == seller.ID)
+                    {
+                        MessageBox.Show("Siz oz mehsulunuzu ala bilmersiniz", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    //Decrease product count
+                    product.Count -= 1;
+                    _unitOfWork.Products.Update(product);
+
+                    //Increase seller balance (according product price)
+                    seller.Balance += product.Price;
+                    _unitOfWork.Users.Update(seller);
+
+                    //Decrease buyer balance (according product price)
+                    buyer.Balance -= product.Price;
+                    _unitOfWork.Users.Update(buyer);
+
+                    //Add this to PurchaseLog
+
+                    var purchLog = new PurchaseLog
+                    {
+                        ProductID = product.ID,
+                        User = buyer,
+                        PurchaseDate = DateTime.Now,
+                    };
+
+                    _unitOfWork.PurchaseLogs.Create(purchLog);
+
+                    //Refresh the pages
+                    lbl_balance.Text = $"Balance : {buyer.Balance}";
+
+                    LoadAllProducts();
+                    LoadPersonalProducts();
+
+                }
+            }            
+        }
     }
 }

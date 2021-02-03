@@ -149,6 +149,7 @@
             this.dgw_allProducts.Name = "dgw_allProducts";
             this.dgw_allProducts.Size = new System.Drawing.Size(717, 194);
             this.dgw_allProducts.TabIndex = 0;
+            this.dgw_allProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_allProducts_CellClick);
             // 
             // pg_myProducts
             // 
