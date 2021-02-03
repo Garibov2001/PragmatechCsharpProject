@@ -153,6 +153,7 @@ namespace ShopApp.Controls
             lbl_name_surname.Text += CurrentUser.Name + " " + CurrentUser.Surname;
             lbl_email.Text += CurrentUser.Email;
             lbl_phone.Text += CurrentUser.PhoneNumber;
+            lbl_balance.Text += CurrentUser.Balance;
             LoadAllProducts();
             LoadPersonalProducts();
         }

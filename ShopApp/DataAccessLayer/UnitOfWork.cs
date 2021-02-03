@@ -14,5 +14,6 @@ namespace ShopApp.DataAccessLayer
         public RoleDal Roles { get => new RoleDal(); }
         public ProductDal Products { get => new ProductDal(); }
         public ProductCategoryDal ProductCategories { get => new ProductCategoryDal(); }
+        public PurchaseLogDal PurchaseLogs { get => new PurchaseLogDal(); }
     }
 }

@@ -30,12 +30,15 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_all_products_refresh = new System.Windows.Forms.Button();
+            this.btn_all_products_detailed_search = new System.Windows.Forms.Button();
             this.cmb_all_products_search = new System.Windows.Forms.ComboBox();
             this.lb_filter_category = new System.Windows.Forms.Label();
             this.txb_all_products_search = new System.Windows.Forms.TextBox();
             this.lbl_by_name = new System.Windows.Forms.Label();
             this.dgw_allProducts = new System.Windows.Forms.DataGridView();
             this.pg_myProducts = new System.Windows.Forms.TabPage();
+            this.btn_my_products_refresh = new System.Windows.Forms.Button();
             this.btn_my_products_detailed_search = new System.Windows.Forms.Button();
             this.btn_addProduct = new System.Windows.Forms.Button();
             this.cmb_my_products_search = new System.Windows.Forms.ComboBox();
@@ -47,9 +50,7 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_phone = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
-            this.btn_all_products_detailed_search = new System.Windows.Forms.Button();
-            this.btn_my_products_refresh = new System.Windows.Forms.Button();
-            this.btn_all_products_refresh = new System.Windows.Forms.Button();
+            this.lbl_balance = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
@@ -85,6 +86,26 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Bütün məhsullar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_all_products_refresh
+            // 
+            this.btn_all_products_refresh.Location = new System.Drawing.Point(644, 33);
+            this.btn_all_products_refresh.Name = "btn_all_products_refresh";
+            this.btn_all_products_refresh.Size = new System.Drawing.Size(97, 33);
+            this.btn_all_products_refresh.TabIndex = 6;
+            this.btn_all_products_refresh.Text = "Refresh";
+            this.btn_all_products_refresh.UseVisualStyleBackColor = true;
+            this.btn_all_products_refresh.Click += new System.EventHandler(this.btn_all_products_refresh_Click);
+            // 
+            // btn_all_products_detailed_search
+            // 
+            this.btn_all_products_detailed_search.Location = new System.Drawing.Point(496, 33);
+            this.btn_all_products_detailed_search.Name = "btn_all_products_detailed_search";
+            this.btn_all_products_detailed_search.Size = new System.Drawing.Size(123, 34);
+            this.btn_all_products_detailed_search.TabIndex = 5;
+            this.btn_all_products_detailed_search.Text = "Detallı axtarış";
+            this.btn_all_products_detailed_search.UseVisualStyleBackColor = true;
+            this.btn_all_products_detailed_search.Click += new System.EventHandler(this.btn_all_products_detailed_search_Click);
             // 
             // cmb_all_products_search
             // 
@@ -146,6 +167,16 @@
             this.pg_myProducts.TabIndex = 1;
             this.pg_myProducts.Text = "Məhsullarım";
             this.pg_myProducts.UseVisualStyleBackColor = true;
+            // 
+            // btn_my_products_refresh
+            // 
+            this.btn_my_products_refresh.Location = new System.Drawing.Point(642, 42);
+            this.btn_my_products_refresh.Name = "btn_my_products_refresh";
+            this.btn_my_products_refresh.Size = new System.Drawing.Size(101, 35);
+            this.btn_my_products_refresh.TabIndex = 7;
+            this.btn_my_products_refresh.Text = "Refresh";
+            this.btn_my_products_refresh.UseVisualStyleBackColor = true;
+            this.btn_my_products_refresh.Click += new System.EventHandler(this.btn_my_products_refresh_Click);
             // 
             // btn_my_products_detailed_search
             // 
@@ -255,41 +286,22 @@
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
-            // btn_all_products_detailed_search
+            // lbl_balance
             // 
-            this.btn_all_products_detailed_search.Location = new System.Drawing.Point(496, 33);
-            this.btn_all_products_detailed_search.Name = "btn_all_products_detailed_search";
-            this.btn_all_products_detailed_search.Size = new System.Drawing.Size(123, 34);
-            this.btn_all_products_detailed_search.TabIndex = 5;
-            this.btn_all_products_detailed_search.Text = "Detallı axtarış";
-            this.btn_all_products_detailed_search.UseVisualStyleBackColor = true;
-            this.btn_all_products_detailed_search.Click += new System.EventHandler(this.btn_all_products_detailed_search_Click);
-            // 
-            // btn_my_products_refresh
-            // 
-            this.btn_my_products_refresh.Location = new System.Drawing.Point(642, 42);
-            this.btn_my_products_refresh.Name = "btn_my_products_refresh";
-            this.btn_my_products_refresh.Size = new System.Drawing.Size(101, 35);
-            this.btn_my_products_refresh.TabIndex = 7;
-            this.btn_my_products_refresh.Text = "Refresh";
-            this.btn_my_products_refresh.UseVisualStyleBackColor = true;
-            this.btn_my_products_refresh.Click += new System.EventHandler(this.btn_my_products_refresh_Click);
-            // 
-            // btn_all_products_refresh
-            // 
-            this.btn_all_products_refresh.Location = new System.Drawing.Point(644, 33);
-            this.btn_all_products_refresh.Name = "btn_all_products_refresh";
-            this.btn_all_products_refresh.Size = new System.Drawing.Size(97, 33);
-            this.btn_all_products_refresh.TabIndex = 6;
-            this.btn_all_products_refresh.Text = "Refresh";
-            this.btn_all_products_refresh.UseVisualStyleBackColor = true;
-            this.btn_all_products_refresh.Click += new System.EventHandler(this.btn_all_products_refresh_Click);
+            this.lbl_balance.AutoSize = true;
+            this.lbl_balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_balance.Location = new System.Drawing.Point(609, 79);
+            this.lbl_balance.Name = "lbl_balance";
+            this.lbl_balance.Size = new System.Drawing.Size(88, 25);
+            this.lbl_balance.TabIndex = 5;
+            this.lbl_balance.Text = "Balans : ";
             // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 567);
+            this.Controls.Add(this.lbl_balance);
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.lbl_phone);
             this.Controls.Add(this.lbl_email);
@@ -335,5 +347,6 @@
         private System.Windows.Forms.Button btn_all_products_detailed_search;
         private System.Windows.Forms.Button btn_my_products_refresh;
         private System.Windows.Forms.Button btn_all_products_refresh;
+        private System.Windows.Forms.Label lbl_balance;
     }
 }

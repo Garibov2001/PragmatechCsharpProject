@@ -22,7 +22,7 @@ namespace SalesManagement.Entities
         public DbSet<Role> Role { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
-
+        public DbSet<PurchaseLog> PurchaseLog { get; set; }
 
     }
 }

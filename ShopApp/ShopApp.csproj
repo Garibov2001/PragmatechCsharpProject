@@ -104,6 +104,7 @@
     <Compile Include="DataAccessLayer\Concrete\EntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Concrete\ProductCategoryDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\ProductDal.cs" />
+    <Compile Include="DataAccessLayer\Concrete\PurchaseLogDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\RoleDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\UserDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\UserRoleDal.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="Entities\Conrete\Authentication\UserRole.cs" />
     <Compile Include="Entities\Conrete\Product\Product.cs" />
     <Compile Include="Entities\Conrete\Product\ProductCategory.cs" />
+    <Compile Include="Entities\Conrete\Product\PurchaseLog.cs" />
     <Compile Include="Entities\Conrete\SalesManagementContext.cs" />
     <Compile Include="Enums\ProductStatus.cs" />
     <Compile Include="Migrations\202101301554583_authInit.cs" />
@@ -127,6 +129,14 @@
     <Compile Include="Migrations\202101310613529_productInit.cs" />
     <Compile Include="Migrations\202101310613529_productInit.designer.cs">
       <DependentUpon>202101310613529_productInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102032044295_initBalance.cs" />
+    <Compile Include="Migrations\202102032044295_initBalance.designer.cs">
+      <DependentUpon>202102032044295_initBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102032057598_purchaseInit.cs" />
+    <Compile Include="Migrations\202102032057598_purchaseInit.designer.cs">
+      <DependentUpon>202102032057598_purchaseInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -160,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101310613529_productInit.resx">
       <DependentUpon>202101310613529_productInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102032044295_initBalance.resx">
+      <DependentUpon>202102032044295_initBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102032057598_purchaseInit.resx">
+      <DependentUpon>202102032057598_purchaseInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
