@@ -48,6 +48,8 @@
             this.lbl_phone = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
             this.btn_all_products_detailed_search = new System.Windows.Forms.Button();
+            this.btn_my_products_refresh = new System.Windows.Forms.Button();
+            this.btn_all_products_refresh = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
@@ -68,6 +70,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btn_all_products_refresh);
             this.tabPage1.Controls.Add(this.btn_all_products_detailed_search);
             this.tabPage1.Controls.Add(this.cmb_all_products_search);
             this.tabPage1.Controls.Add(this.lb_filter_category);
@@ -86,16 +89,16 @@
             // cmb_all_products_search
             // 
             this.cmb_all_products_search.FormattingEnabled = true;
-            this.cmb_all_products_search.Location = new System.Drawing.Point(260, 43);
+            this.cmb_all_products_search.Location = new System.Drawing.Point(240, 43);
             this.cmb_all_products_search.Name = "cmb_all_products_search";
-            this.cmb_all_products_search.Size = new System.Drawing.Size(202, 24);
+            this.cmb_all_products_search.Size = new System.Drawing.Size(237, 24);
             this.cmb_all_products_search.TabIndex = 4;
             this.cmb_all_products_search.SelectedValueChanged += new System.EventHandler(this.cmb_all_products_search_SelectedValueChanged);
             // 
             // lb_filter_category
             // 
             this.lb_filter_category.AutoSize = true;
-            this.lb_filter_category.Location = new System.Drawing.Point(257, 15);
+            this.lb_filter_category.Location = new System.Drawing.Point(237, 15);
             this.lb_filter_category.Name = "lb_filter_category";
             this.lb_filter_category.Size = new System.Drawing.Size(240, 17);
             this.lb_filter_category.TabIndex = 3;
@@ -105,7 +108,7 @@
             // 
             this.txb_all_products_search.Location = new System.Drawing.Point(24, 44);
             this.txb_all_products_search.Name = "txb_all_products_search";
-            this.txb_all_products_search.Size = new System.Drawing.Size(156, 23);
+            this.txb_all_products_search.Size = new System.Drawing.Size(183, 23);
             this.txb_all_products_search.TabIndex = 2;
             this.txb_all_products_search.TextChanged += new System.EventHandler(this.txb_all_products_search_TextChanged);
             // 
@@ -128,6 +131,7 @@
             // 
             // pg_myProducts
             // 
+            this.pg_myProducts.Controls.Add(this.btn_my_products_refresh);
             this.pg_myProducts.Controls.Add(this.btn_my_products_detailed_search);
             this.pg_myProducts.Controls.Add(this.btn_addProduct);
             this.pg_myProducts.Controls.Add(this.cmb_my_products_search);
@@ -145,7 +149,7 @@
             // 
             // btn_my_products_detailed_search
             // 
-            this.btn_my_products_detailed_search.Location = new System.Drawing.Point(612, 42);
+            this.btn_my_products_detailed_search.Location = new System.Drawing.Point(511, 42);
             this.btn_my_products_detailed_search.Name = "btn_my_products_detailed_search";
             this.btn_my_products_detailed_search.Size = new System.Drawing.Size(121, 35);
             this.btn_my_products_detailed_search.TabIndex = 6;
@@ -168,7 +172,7 @@
             // 
             this.cmb_my_products_search.BackColor = System.Drawing.SystemColors.MenuBar;
             this.cmb_my_products_search.FormattingEnabled = true;
-            this.cmb_my_products_search.Location = new System.Drawing.Point(286, 48);
+            this.cmb_my_products_search.Location = new System.Drawing.Point(258, 47);
             this.cmb_my_products_search.Name = "cmb_my_products_search";
             this.cmb_my_products_search.Size = new System.Drawing.Size(233, 24);
             this.cmb_my_products_search.TabIndex = 4;
@@ -177,7 +181,7 @@
             // lbl_filter
             // 
             this.lbl_filter.AutoSize = true;
-            this.lbl_filter.Location = new System.Drawing.Point(283, 16);
+            this.lbl_filter.Location = new System.Drawing.Point(255, 16);
             this.lbl_filter.Name = "lbl_filter";
             this.lbl_filter.Size = new System.Drawing.Size(236, 17);
             this.lbl_filter.TabIndex = 3;
@@ -253,13 +257,33 @@
             // 
             // btn_all_products_detailed_search
             // 
-            this.btn_all_products_detailed_search.Location = new System.Drawing.Point(609, 33);
+            this.btn_all_products_detailed_search.Location = new System.Drawing.Point(496, 33);
             this.btn_all_products_detailed_search.Name = "btn_all_products_detailed_search";
             this.btn_all_products_detailed_search.Size = new System.Drawing.Size(123, 34);
             this.btn_all_products_detailed_search.TabIndex = 5;
             this.btn_all_products_detailed_search.Text = "Detallı axtarış";
             this.btn_all_products_detailed_search.UseVisualStyleBackColor = true;
             this.btn_all_products_detailed_search.Click += new System.EventHandler(this.btn_all_products_detailed_search_Click);
+            // 
+            // btn_my_products_refresh
+            // 
+            this.btn_my_products_refresh.Location = new System.Drawing.Point(642, 42);
+            this.btn_my_products_refresh.Name = "btn_my_products_refresh";
+            this.btn_my_products_refresh.Size = new System.Drawing.Size(101, 35);
+            this.btn_my_products_refresh.TabIndex = 7;
+            this.btn_my_products_refresh.Text = "Refresh";
+            this.btn_my_products_refresh.UseVisualStyleBackColor = true;
+            this.btn_my_products_refresh.Click += new System.EventHandler(this.btn_my_products_refresh_Click);
+            // 
+            // btn_all_products_refresh
+            // 
+            this.btn_all_products_refresh.Location = new System.Drawing.Point(644, 33);
+            this.btn_all_products_refresh.Name = "btn_all_products_refresh";
+            this.btn_all_products_refresh.Size = new System.Drawing.Size(97, 33);
+            this.btn_all_products_refresh.TabIndex = 6;
+            this.btn_all_products_refresh.Text = "Refresh";
+            this.btn_all_products_refresh.UseVisualStyleBackColor = true;
+            this.btn_all_products_refresh.Click += new System.EventHandler(this.btn_all_products_refresh_Click);
             // 
             // AccountForm
             // 
@@ -309,5 +333,7 @@
         public System.Windows.Forms.ComboBox cmb_all_products_search;
         private System.Windows.Forms.Button btn_my_products_detailed_search;
         private System.Windows.Forms.Button btn_all_products_detailed_search;
+        private System.Windows.Forms.Button btn_my_products_refresh;
+        private System.Windows.Forms.Button btn_all_products_refresh;
     }
 }

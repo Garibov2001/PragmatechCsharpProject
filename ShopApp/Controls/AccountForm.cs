@@ -285,5 +285,21 @@ namespace ShopApp.Controls
             DetailedSearchForm searchForm = new DetailedSearchForm(this, false);
             searchForm.Show();
         }
+
+        private void btn_my_products_refresh_Click(object sender, EventArgs e)
+        {
+            txb_my_products_search.Text = string.Empty;
+            cmb_my_products_search.Items.Clear();
+            FillSearchCategories(cmb_my_products_search);
+            LoadPersonalProducts();
+        }
+
+        private void btn_all_products_refresh_Click(object sender, EventArgs e)
+        {
+            txb_all_products_search.Text = string.Empty;
+            cmb_all_products_search.Items.Clear();
+            FillSearchCategories(cmb_all_products_search);
+            LoadAllProducts();
+        }
     }
 }
