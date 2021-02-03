@@ -29,6 +29,7 @@ namespace ShopApp.Controls
             LoginForm = _loginForm;
             InitializeComponent();
             FillSearchCategories(cmb_my_products_search);
+            FillSearchCategories(cmb_all_products_search);
         }
 
         private void FillSearchCategories(ComboBox argController)
@@ -83,7 +84,6 @@ namespace ShopApp.Controls
             if (dgw_allProducts.Columns.Count > 0)
             {
                 dgw_allProducts.Columns[0].Visible = false;
-
             }
         }
 
@@ -234,6 +234,44 @@ namespace ShopApp.Controls
                 LoadPersonalProducts(x => x.UserID == CurrentUser.ID && x.ProductCategoryID == category_id);           
             else            
                 LoadPersonalProducts();            
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void txb_all_products_search_TextChanged(object sender, EventArgs e)
+        {
+            // Initialize the search combo box wih category "Butun mehsullar"
+            foreach (ComboboxItem item in cmb_all_products_search.Items)
+            {
+                if ((int)item.Value == -1)
+                {
+                    cmb_all_products_search.SelectedIndex = cmb_all_products_search.Items.IndexOf(item);
+                    break;
+                }
+            }
+
+            if (string.IsNullOrEmpty(txb_all_products_search.Text))
+                LoadAllProducts();
+            else
+                LoadAllProducts(x => x.Name.Contains(txb_all_products_search.Text));
+        }
+
+        private void cmb_all_products_search_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Initialize search text box
+            txb_all_products_search.Text = string.Empty;
+
+            int category_id = (int)(cmb_all_products_search.SelectedItem as ComboboxItem).Value;
+
+            // Condition is necessery because we have "Butun mehsullar" category
+            if (category_id > 0)
+                LoadAllProducts(x => x.ProductCategoryID == category_id);
+            else
+                LoadAllProducts();
         }
     }
 }

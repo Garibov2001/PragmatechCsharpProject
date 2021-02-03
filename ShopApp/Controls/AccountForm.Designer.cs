@@ -30,6 +30,10 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cmb_all_products_search = new System.Windows.Forms.ComboBox();
+            this.lb_filter_category = new System.Windows.Forms.Label();
+            this.txb_all_products_search = new System.Windows.Forms.TextBox();
+            this.lbl_by_name = new System.Windows.Forms.Label();
             this.dgw_allProducts = new System.Windows.Forms.DataGridView();
             this.pg_myProducts = new System.Windows.Forms.TabPage();
             this.btn_addProduct = new System.Windows.Forms.Button();
@@ -62,6 +66,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cmb_all_products_search);
+            this.tabPage1.Controls.Add(this.lb_filter_category);
+            this.tabPage1.Controls.Add(this.txb_all_products_search);
+            this.tabPage1.Controls.Add(this.lbl_by_name);
             this.tabPage1.Controls.Add(this.dgw_allProducts);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -72,12 +80,47 @@
             this.tabPage1.Text = "Bütün məhsullar";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // cmb_all_products_search
+            // 
+            this.cmb_all_products_search.FormattingEnabled = true;
+            this.cmb_all_products_search.Location = new System.Drawing.Point(539, 44);
+            this.cmb_all_products_search.Name = "cmb_all_products_search";
+            this.cmb_all_products_search.Size = new System.Drawing.Size(202, 24);
+            this.cmb_all_products_search.TabIndex = 4;
+            this.cmb_all_products_search.SelectedValueChanged += new System.EventHandler(this.cmb_all_products_search_SelectedValueChanged);
+            // 
+            // lb_filter_category
+            // 
+            this.lb_filter_category.AutoSize = true;
+            this.lb_filter_category.Location = new System.Drawing.Point(501, 15);
+            this.lb_filter_category.Name = "lb_filter_category";
+            this.lb_filter_category.Size = new System.Drawing.Size(240, 17);
+            this.lb_filter_category.TabIndex = 3;
+            this.lb_filter_category.Text = "Məhsulun kategoriyasına görə filterlə";
+            // 
+            // txb_all_products_search
+            // 
+            this.txb_all_products_search.Location = new System.Drawing.Point(24, 44);
+            this.txb_all_products_search.Name = "txb_all_products_search";
+            this.txb_all_products_search.Size = new System.Drawing.Size(156, 23);
+            this.txb_all_products_search.TabIndex = 2;
+            this.txb_all_products_search.TextChanged += new System.EventHandler(this.txb_all_products_search_TextChanged);
+            // 
+            // lbl_by_name
+            // 
+            this.lbl_by_name.AutoSize = true;
+            this.lbl_by_name.Location = new System.Drawing.Point(25, 15);
+            this.lbl_by_name.Name = "lbl_by_name";
+            this.lbl_by_name.Size = new System.Drawing.Size(186, 17);
+            this.lbl_by_name.TabIndex = 1;
+            this.lbl_by_name.Text = "Məhsulun adına görə axtarış";
+            // 
             // dgw_allProducts
             // 
             this.dgw_allProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_allProducts.Location = new System.Drawing.Point(24, 83);
+            this.dgw_allProducts.Location = new System.Drawing.Point(24, 97);
             this.dgw_allProducts.Name = "dgw_allProducts";
-            this.dgw_allProducts.Size = new System.Drawing.Size(717, 150);
+            this.dgw_allProducts.Size = new System.Drawing.Size(717, 194);
             this.dgw_allProducts.TabIndex = 0;
             // 
             // pg_myProducts
@@ -192,6 +235,7 @@
             this.btn_exit.TabIndex = 4;
             this.btn_exit.Text = "Hesabdan çıx";
             this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // AccountForm
             // 
@@ -209,6 +253,7 @@
             this.Load += new System.EventHandler(this.AccountForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).EndInit();
             this.pg_myProducts.ResumeLayout(false);
             this.pg_myProducts.PerformLayout();
@@ -234,5 +279,9 @@
         private System.Windows.Forms.Label lbl_search;
         private System.Windows.Forms.DataGridView dgw_myProducts;
         private System.Windows.Forms.DataGridView dgw_allProducts;
+        private System.Windows.Forms.Label lb_filter_category;
+        private System.Windows.Forms.TextBox txb_all_products_search;
+        private System.Windows.Forms.Label lbl_by_name;
+        private System.Windows.Forms.ComboBox cmb_all_products_search;
     }
 }

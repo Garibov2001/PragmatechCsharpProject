@@ -65,7 +65,7 @@ namespace ShopApp.DataAccessLayer
         }
 
         public virtual List<T> GetAll(Expression<Func<T, bool>> expression = null)
-        {
+        {   
             using (var context = new SalesManagementContext())
             {
                 try
