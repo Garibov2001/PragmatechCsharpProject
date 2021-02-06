@@ -25,6 +25,7 @@ namespace ShopApp.Controls.Products
             _unitOfWork = new UnitOfWork();
             InitializeComponent();
             FillSearchCategories();
+
         }
 
         private void FillSearchCategories()

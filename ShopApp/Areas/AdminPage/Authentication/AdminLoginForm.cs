@@ -39,8 +39,8 @@ namespace ShopApp.Areas.AdminPage.Authentication
             }
 
 
-            MessageBox.Show("Qeseng");
             var admPanel = new AdminPanel(this);
+            AdminPanel.CurrentUser = user;
             admPanel.Show();
         }
 

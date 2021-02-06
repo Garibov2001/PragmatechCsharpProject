@@ -46,24 +46,23 @@
             this.txb_my_products_search = new System.Windows.Forms.TextBox();
             this.lbl_search = new System.Windows.Forms.Label();
             this.dgw_myProducts = new System.Windows.Forms.DataGridView();
+            this.myPurchases = new System.Windows.Forms.TabPage();
+            this.dgw_myPurchases = new System.Windows.Forms.DataGridView();
+            this.mySales = new System.Windows.Forms.TabPage();
+            this.dgw_mySales = new System.Windows.Forms.DataGridView();
+            this.adminFeedbacks = new System.Windows.Forms.TabPage();
             this.lbl_name_surname = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_phone = new System.Windows.Forms.Label();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.lbl_balance = new System.Windows.Forms.Label();
-            this.myPurchases = new System.Windows.Forms.TabPage();
-            this.mySales = new System.Windows.Forms.TabPage();
-            this.dgw_myPurchases = new System.Windows.Forms.DataGridView();
-            this.dgw_mySales = new System.Windows.Forms.DataGridView();
-            this.adminFeedbacks = new System.Windows.Forms.TabPage();
             this.management.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
             this.pg_myProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myProducts)).BeginInit();
             this.myPurchases.SuspendLayout();
-            this.mySales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).BeginInit();
+            this.mySales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,7 +158,7 @@
             this.dgw_allProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_allProducts.Location = new System.Drawing.Point(24, 97);
             this.dgw_allProducts.Name = "dgw_allProducts";
-            this.dgw_allProducts.Size = new System.Drawing.Size(717, 194);
+            this.dgw_allProducts.Size = new System.Drawing.Size(717, 274);
             this.dgw_allProducts.TabIndex = 0;
             this.dgw_allProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_allProducts_CellClick);
             // 
@@ -258,6 +257,54 @@
             this.dgw_myProducts.TabIndex = 0;
             this.dgw_myProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_myProducts_CellClick);
             // 
+            // myPurchases
+            // 
+            this.myPurchases.Controls.Add(this.dgw_myPurchases);
+            this.myPurchases.Location = new System.Drawing.Point(4, 25);
+            this.myPurchases.Name = "myPurchases";
+            this.myPurchases.Padding = new System.Windows.Forms.Padding(3);
+            this.myPurchases.Size = new System.Drawing.Size(768, 389);
+            this.myPurchases.TabIndex = 2;
+            this.myPurchases.Text = "Alışlarım";
+            this.myPurchases.UseVisualStyleBackColor = true;
+            // 
+            // dgw_myPurchases
+            // 
+            this.dgw_myPurchases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_myPurchases.Location = new System.Drawing.Point(15, 18);
+            this.dgw_myPurchases.Name = "dgw_myPurchases";
+            this.dgw_myPurchases.Size = new System.Drawing.Size(734, 347);
+            this.dgw_myPurchases.TabIndex = 0;
+            // 
+            // mySales
+            // 
+            this.mySales.Controls.Add(this.dgw_mySales);
+            this.mySales.Location = new System.Drawing.Point(4, 25);
+            this.mySales.Name = "mySales";
+            this.mySales.Padding = new System.Windows.Forms.Padding(3);
+            this.mySales.Size = new System.Drawing.Size(768, 389);
+            this.mySales.TabIndex = 3;
+            this.mySales.Text = "Satışlarım";
+            this.mySales.UseVisualStyleBackColor = true;
+            // 
+            // dgw_mySales
+            // 
+            this.dgw_mySales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_mySales.Location = new System.Drawing.Point(19, 20);
+            this.dgw_mySales.Name = "dgw_mySales";
+            this.dgw_mySales.Size = new System.Drawing.Size(727, 343);
+            this.dgw_mySales.TabIndex = 0;
+            // 
+            // adminFeedbacks
+            // 
+            this.adminFeedbacks.Location = new System.Drawing.Point(4, 25);
+            this.adminFeedbacks.Name = "adminFeedbacks";
+            this.adminFeedbacks.Padding = new System.Windows.Forms.Padding(3);
+            this.adminFeedbacks.Size = new System.Drawing.Size(768, 389);
+            this.adminFeedbacks.TabIndex = 4;
+            this.adminFeedbacks.Text = "Admindən feedbacklər";
+            this.adminFeedbacks.UseVisualStyleBackColor = true;
+            // 
             // lbl_name_surname
             // 
             this.lbl_name_surname.AutoSize = true;
@@ -288,74 +335,15 @@
             this.lbl_phone.TabIndex = 3;
             this.lbl_phone.Text = "Telefon :";
             // 
-            // btn_exit
-            // 
-            this.btn_exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_exit.Location = new System.Drawing.Point(650, 12);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(134, 35);
-            this.btn_exit.TabIndex = 4;
-            this.btn_exit.Text = "Hesabdan çıx";
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
-            // 
             // lbl_balance
             // 
             this.lbl_balance.AutoSize = true;
             this.lbl_balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_balance.Location = new System.Drawing.Point(609, 79);
+            this.lbl_balance.Location = new System.Drawing.Point(567, 43);
             this.lbl_balance.Name = "lbl_balance";
             this.lbl_balance.Size = new System.Drawing.Size(88, 25);
             this.lbl_balance.TabIndex = 5;
             this.lbl_balance.Text = "Balans : ";
-            // 
-            // myPurchases
-            // 
-            this.myPurchases.Controls.Add(this.dgw_myPurchases);
-            this.myPurchases.Location = new System.Drawing.Point(4, 25);
-            this.myPurchases.Name = "myPurchases";
-            this.myPurchases.Padding = new System.Windows.Forms.Padding(3);
-            this.myPurchases.Size = new System.Drawing.Size(768, 389);
-            this.myPurchases.TabIndex = 2;
-            this.myPurchases.Text = "Alışlarım";
-            this.myPurchases.UseVisualStyleBackColor = true;
-            // 
-            // mySales
-            // 
-            this.mySales.Controls.Add(this.dgw_mySales);
-            this.mySales.Location = new System.Drawing.Point(4, 25);
-            this.mySales.Name = "mySales";
-            this.mySales.Padding = new System.Windows.Forms.Padding(3);
-            this.mySales.Size = new System.Drawing.Size(768, 389);
-            this.mySales.TabIndex = 3;
-            this.mySales.Text = "Satışlarım";
-            this.mySales.UseVisualStyleBackColor = true;
-            // 
-            // dgw_myPurchases
-            // 
-            this.dgw_myPurchases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_myPurchases.Location = new System.Drawing.Point(15, 18);
-            this.dgw_myPurchases.Name = "dgw_myPurchases";
-            this.dgw_myPurchases.Size = new System.Drawing.Size(734, 347);
-            this.dgw_myPurchases.TabIndex = 0;
-            // 
-            // dgw_mySales
-            // 
-            this.dgw_mySales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_mySales.Location = new System.Drawing.Point(19, 20);
-            this.dgw_mySales.Name = "dgw_mySales";
-            this.dgw_mySales.Size = new System.Drawing.Size(727, 343);
-            this.dgw_mySales.TabIndex = 0;
-            // 
-            // adminFeedbacks
-            // 
-            this.adminFeedbacks.Location = new System.Drawing.Point(4, 25);
-            this.adminFeedbacks.Name = "adminFeedbacks";
-            this.adminFeedbacks.Padding = new System.Windows.Forms.Padding(3);
-            this.adminFeedbacks.Size = new System.Drawing.Size(768, 389);
-            this.adminFeedbacks.TabIndex = 4;
-            this.adminFeedbacks.Text = "Admindən feedbacklər";
-            this.adminFeedbacks.UseVisualStyleBackColor = true;
             // 
             // AccountForm
             // 
@@ -363,7 +351,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 567);
             this.Controls.Add(this.lbl_balance);
-            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.lbl_phone);
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl_name_surname);
@@ -380,8 +367,8 @@
             this.pg_myProducts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myProducts)).EndInit();
             this.myPurchases.ResumeLayout(false);
-            this.mySales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).EndInit();
+            this.mySales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -396,7 +383,6 @@
         private System.Windows.Forms.Label lbl_name_surname;
         private System.Windows.Forms.Label lbl_email;
         private System.Windows.Forms.Label lbl_phone;
-        private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Button btn_addProduct;
         public System.Windows.Forms.ComboBox cmb_my_products_search;
         private System.Windows.Forms.Label lbl_filter;
