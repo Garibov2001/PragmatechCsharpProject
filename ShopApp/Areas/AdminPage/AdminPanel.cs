@@ -150,7 +150,35 @@ namespace ShopApp.Areas.AdminPage
 
         private void btn__products_refresh_Click(object sender, EventArgs e)
         {
+            txb_products_search.Text = string.Empty;
+            cmb_products_search.Items.Clear();
+            FillSearchCategories(cmb_products_search);
             LoadProducts();
+        }
+
+        private void dgw_products_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewButtonCell buttonCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+
+                //Check button:
+                if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "edit_btn")
+                {
+                    var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    var product = _unitOfWork.Products.Get(x => x.ID == productID);
+                    var editProductForm = new AdmEditProductForm(product);
+                    editProductForm.ShowDialog();                 
+                }
+                else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
+                {
+                    var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    MessageBox.Show("Delete btn");
+                }
+
+            }
         }
     }
 }

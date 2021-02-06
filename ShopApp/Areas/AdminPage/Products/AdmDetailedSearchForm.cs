@@ -60,6 +60,7 @@ namespace ShopApp.Areas.AdminPage.Products
         {
             cmb_product_status.Items.Add(new Utilities.ComboboxItem { Value = (int)ProductStatus.Aktiv, Text = ProductStatus.Aktiv.ToString() });
             cmb_product_status.Items.Add(new Utilities.ComboboxItem { Value = (int)ProductStatus.Passiv, Text = ProductStatus.Passiv.ToString() });
+            cmb_product_status.Items.Add(new Utilities.ComboboxItem { Value = (int)ProductStatus.Deleted, Text = ProductStatus.Deleted.ToString() });
         }
 
         private void btn_search_Click(object sender, EventArgs e)

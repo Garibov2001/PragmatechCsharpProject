@@ -296,8 +296,12 @@ namespace ShopApp.Controls
                 }
             }                           
 
+
+
             LoadAllProducts();
             LoadPersonalProducts();
+            LoadPersonalPurchases();
+            LoadPersonalSales();
         }
 
         private void txb_my_products_search_TextChanged(object sender, EventArgs e)
