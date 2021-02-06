@@ -76,6 +76,12 @@
     <Compile Include="Areas\AdminPage\Authentication\AdminLoginForm.Designer.cs">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmAddCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmAddCategoryForm.Designer.cs">
+      <DependentUpon>AdmAddCategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Areas\AdminPage\Products\AdmDeleteProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Authentication\AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\AdminPage\Products\AdmAddCategoryForm.resx">
+      <DependentUpon>AdmAddCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Products\AdmDeleteProductForm.resx">
       <DependentUpon>AdmDeleteProductForm.cs</DependentUpon>

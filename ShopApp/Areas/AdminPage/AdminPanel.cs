@@ -342,18 +342,37 @@ namespace ShopApp.Areas.AdminPage
                 }
                 else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
                 {
-                    var categoryID = (int)dgv.CurrentRow.Cells["ID"].Value;
-                    var category = _unitOfWork.ProductCategories.Get(x => x.ID == categoryID);
-                    MessageBox.Show("Delete");
+                    var result = MessageBox.Show("Bunu etmek istediyinden eminsen?", "Kategoriyani silmek", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                    if (result == DialogResult.Yes)
+                    {
+                        var categoryID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                        var category = _unitOfWork.ProductCategories.Get(x => x.ID == categoryID);
+                        _unitOfWork.ProductCategories.Delete(category);
+                    }                                        
                 }
 
                 LoadProducts();
                 LoadFeedbacks();
                 LoadBuysSells();
                 LoadAllCategories();
+                cmb_products_search.Items.Clear();
+                FillSearchCategories(cmb_products_search);
             }
 
+        }
+
+        private void btn_addCtegory_Click(object sender, EventArgs e)
+        {
+            var addForm = new AdmAddCategoryForm();
+            addForm.ShowDialog();
+
+            LoadProducts();
+            LoadFeedbacks();
+            LoadBuysSells();
+            LoadAllCategories();
+            cmb_products_search.Items.Clear();
+            FillSearchCategories(cmb_products_search);
         }
     }
 }

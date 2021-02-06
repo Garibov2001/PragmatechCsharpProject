@@ -41,20 +41,20 @@
             this.myPurchases = new System.Windows.Forms.TabPage();
             this.dgw_buyssells = new System.Windows.Forms.DataGridView();
             this.tp_categories = new System.Windows.Forms.TabPage();
+            this.btn_addCtegory = new System.Windows.Forms.Button();
+            this.lbl_category = new System.Windows.Forms.Label();
+            this.dgw_categories = new System.Windows.Forms.DataGridView();
             this.tp_feedbacks = new System.Windows.Forms.TabPage();
             this.dgw_feedbacks = new System.Windows.Forms.DataGridView();
-            this.dgw_categories = new System.Windows.Forms.DataGridView();
-            this.lbl_category = new System.Windows.Forms.Label();
-            this.btn_addCtegory = new System.Windows.Forms.Button();
             this.management.SuspendLayout();
             this.products_management.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_products)).BeginInit();
             this.myPurchases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_buyssells)).BeginInit();
             this.tp_categories.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).BeginInit();
             this.tp_feedbacks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_feedbacks)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_name_surname
@@ -194,6 +194,35 @@
             this.tp_categories.Text = "Kategoriya əlavə et";
             this.tp_categories.UseVisualStyleBackColor = true;
             // 
+            // btn_addCtegory
+            // 
+            this.btn_addCtegory.Location = new System.Drawing.Point(592, 90);
+            this.btn_addCtegory.Name = "btn_addCtegory";
+            this.btn_addCtegory.Size = new System.Drawing.Size(159, 40);
+            this.btn_addCtegory.TabIndex = 6;
+            this.btn_addCtegory.Text = "Kategoriya əlavə et";
+            this.btn_addCtegory.UseVisualStyleBackColor = true;
+            this.btn_addCtegory.Click += new System.EventHandler(this.btn_addCtegory_Click);
+            // 
+            // lbl_category
+            // 
+            this.lbl_category.AutoSize = true;
+            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_category.Location = new System.Drawing.Point(26, 235);
+            this.lbl_category.Name = "lbl_category";
+            this.lbl_category.Size = new System.Drawing.Size(687, 25);
+            this.lbl_category.TabIndex = 5;
+            this.lbl_category.Text = "Qeyd : Əgər kategoriyanı silsəz həmin kategoriyaya aid productlar da silinəcək";
+            // 
+            // dgw_categories
+            // 
+            this.dgw_categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_categories.Location = new System.Drawing.Point(31, 28);
+            this.dgw_categories.Name = "dgw_categories";
+            this.dgw_categories.Size = new System.Drawing.Size(516, 156);
+            this.dgw_categories.TabIndex = 0;
+            this.dgw_categories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_categories_CellContentClick);
+            // 
             // tp_feedbacks
             // 
             this.tp_feedbacks.Controls.Add(this.dgw_feedbacks);
@@ -213,34 +242,6 @@
             this.dgw_feedbacks.Size = new System.Drawing.Size(721, 298);
             this.dgw_feedbacks.TabIndex = 0;
             // 
-            // dgw_categories
-            // 
-            this.dgw_categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_categories.Location = new System.Drawing.Point(31, 28);
-            this.dgw_categories.Name = "dgw_categories";
-            this.dgw_categories.Size = new System.Drawing.Size(516, 156);
-            this.dgw_categories.TabIndex = 0;
-            this.dgw_categories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_categories_CellContentClick);
-            // 
-            // lbl_category
-            // 
-            this.lbl_category.AutoSize = true;
-            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_category.Location = new System.Drawing.Point(26, 235);
-            this.lbl_category.Name = "lbl_category";
-            this.lbl_category.Size = new System.Drawing.Size(687, 25);
-            this.lbl_category.TabIndex = 5;
-            this.lbl_category.Text = "Qeyd : Əgər kategoriyanı silsəz həmin kategoriyaya aid productlar da silinəcək";
-            // 
-            // btn_addCtegory
-            // 
-            this.btn_addCtegory.Location = new System.Drawing.Point(592, 90);
-            this.btn_addCtegory.Name = "btn_addCtegory";
-            this.btn_addCtegory.Size = new System.Drawing.Size(159, 40);
-            this.btn_addCtegory.TabIndex = 6;
-            this.btn_addCtegory.Text = "Kategoriya əlavə et";
-            this.btn_addCtegory.UseVisualStyleBackColor = true;
-            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,9 +260,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_buyssells)).EndInit();
             this.tp_categories.ResumeLayout(false);
             this.tp_categories.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).EndInit();
             this.tp_feedbacks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_feedbacks)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
