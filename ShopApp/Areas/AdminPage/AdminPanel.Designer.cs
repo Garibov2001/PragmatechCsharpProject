@@ -46,6 +46,7 @@
             this.dgw_categories = new System.Windows.Forms.DataGridView();
             this.tp_feedbacks = new System.Windows.Forms.TabPage();
             this.dgw_feedbacks = new System.Windows.Forms.DataGridView();
+            this.btn_admAddProduct = new System.Windows.Forms.Button();
             this.management.SuspendLayout();
             this.products_management.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_products)).BeginInit();
@@ -82,6 +83,7 @@
             // 
             // products_management
             // 
+            this.products_management.Controls.Add(this.btn_admAddProduct);
             this.products_management.Controls.Add(this.btn__products_refresh);
             this.products_management.Controls.Add(this.btn_products_detailed_search);
             this.products_management.Controls.Add(this.cmb_products_search);
@@ -158,7 +160,7 @@
             this.dgw_products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_products.Location = new System.Drawing.Point(24, 97);
             this.dgw_products.Name = "dgw_products";
-            this.dgw_products.Size = new System.Drawing.Size(717, 246);
+            this.dgw_products.Size = new System.Drawing.Size(717, 199);
             this.dgw_products.TabIndex = 0;
             this.dgw_products.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_products_CellClick);
             // 
@@ -242,6 +244,16 @@
             this.dgw_feedbacks.Size = new System.Drawing.Size(721, 298);
             this.dgw_feedbacks.TabIndex = 0;
             // 
+            // btn_admAddProduct
+            // 
+            this.btn_admAddProduct.Location = new System.Drawing.Point(524, 315);
+            this.btn_admAddProduct.Name = "btn_admAddProduct";
+            this.btn_admAddProduct.Size = new System.Drawing.Size(217, 40);
+            this.btn_admAddProduct.TabIndex = 7;
+            this.btn_admAddProduct.Text = "Başqası üçün məhsul əlavə et";
+            this.btn_admAddProduct.UseVisualStyleBackColor = true;
+            this.btn_admAddProduct.Click += new System.EventHandler(this.btn_admAddProduct_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,5 +299,6 @@
         private System.Windows.Forms.Button btn_addCtegory;
         private System.Windows.Forms.Label lbl_category;
         private System.Windows.Forms.DataGridView dgw_categories;
+        private System.Windows.Forms.Button btn_admAddProduct;
     }
 }

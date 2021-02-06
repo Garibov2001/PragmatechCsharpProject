@@ -374,5 +374,12 @@ namespace ShopApp.Areas.AdminPage
             cmb_products_search.Items.Clear();
             FillSearchCategories(cmb_products_search);
         }
+
+        private void btn_admAddProduct_Click(object sender, EventArgs e)
+        {
+            var addProduct = new AdmAddProductForm();
+            addProduct.ShowDialog();
+            LoadProducts();
+        }
     }
 }

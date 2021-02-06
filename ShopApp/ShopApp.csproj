@@ -82,6 +82,12 @@
     <Compile Include="Areas\AdminPage\Products\AdmAddCategoryForm.Designer.cs">
       <DependentUpon>AdmAddCategoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmAddProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmAddProductForm.Designer.cs">
+      <DependentUpon>AdmAddProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Areas\AdminPage\Products\AdmDeleteProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\ComboboxItem.cs" />
+    <Compile Include="Utilities\Validations\AdminAddProductFormValidation.cs" />
     <Compile Include="Utilities\Validations\AdminDetailedSearchValidation.cs" />
     <Compile Include="Utilities\Validations\AdminEditProductFormValidation.cs" />
     <Compile Include="Utilities\Validations\AdminLoginFormValidation.cs" />
@@ -209,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Products\AdmAddCategoryForm.resx">
       <DependentUpon>AdmAddCategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\AdminPage\Products\AdmAddProductForm.resx">
+      <DependentUpon>AdmAddProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Products\AdmDeleteProductForm.resx">
       <DependentUpon>AdmDeleteProductForm.cs</DependentUpon>
