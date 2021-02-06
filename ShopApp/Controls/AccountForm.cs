@@ -247,7 +247,7 @@ namespace ShopApp.Controls
                 //Edit Button:
                 DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
                 editBtn.HeaderText = "Editlemek";
-                editBtn.Name = "Editlemek";
+                editBtn.Name = "edit_btn";
                 editBtn.Text = "Edit";
                 editBtn.UseColumnTextForButtonValue = true;
 
@@ -255,7 +255,7 @@ namespace ShopApp.Controls
                 //Remove Button:
                 DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
                 deleteBtn.HeaderText = "Silmek";
-                deleteBtn.Name = "Silmek";
+                deleteBtn.Name = "delete_btn";
                 deleteBtn.Text = "Sil";
                 deleteBtn.UseColumnTextForButtonValue = true;
 
@@ -289,62 +289,53 @@ namespace ShopApp.Controls
         }
 
         private void dgw_myProducts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // 0 - edit (because of datagrid bug i have to write or condition)
-            if (e.ColumnIndex == 0 || e.ColumnIndex == dgw_myProducts.Columns.Count - 2)
+        {            
+            DataGridView dgv = sender as DataGridView;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                foreach (DataGridViewCell cell in dgw_myProducts.CurrentRow.Cells)
+                DataGridViewButtonCell buttonCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+
+                //Check button:
+                if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "edit_btn")
                 {
-                    string name = dgw_myProducts.Columns[cell.ColumnIndex].Name;
-                    if (name == "ID")
+                    var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    var product = _unitOfWork.Products.Get(x => x.ID == productID);
+                    if (product.ProductStatus == (int)ProductStatus.Deleted)
                     {
-                        var productID = (int)cell.Value;
+                        MessageBox.Show("Silinmis mehsulu editlemek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    var editProductForm = new EditProductForm(product);
+                    editProductForm.ShowDialog();
+                }
+                else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
+                {
+                    var result = MessageBox.Show("Bunu etmek istediyinden eminsen?", "Mehsulu silmek", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
                         var product = _unitOfWork.Products.Get(x => x.ID == productID);
+
                         if (product.ProductStatus == (int)ProductStatus.Deleted)
                         {
-                            MessageBox.Show("Silinmis mehsulu editlemek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Silinmis mehsulu yeniden silmek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
-                        var editProductForm = new EditProductForm(product);
-                        editProductForm.ShowDialog();
-                        break;
-                    }
+
+                        product.ProductStatus = (int)ProductStatus.Deleted;
+                        _unitOfWork.Products.Update(product);
+                    }                  
                 }
             }
-            // 1 - remove
-            else if (e.ColumnIndex == 1 || e.ColumnIndex == dgw_myProducts.Columns.Count - 1)
-            {
-                var result = MessageBox.Show("Bunu etmek istediyinden eminsen?", "Mehsulu silmek", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    foreach (DataGridViewCell cell in dgw_myProducts.CurrentRow.Cells)
-                    {
-                        string name = dgw_myProducts.Columns[cell.ColumnIndex].Name;
-                        if (name == "ID")
-                        {
-                            var productID = (int)cell.Value;
-                            var product = _unitOfWork.Products.Get(x => x.ID == productID);
-                            if (product.ProductStatus == (int)ProductStatus.Deleted)
-                            {
-                                MessageBox.Show("Silinmis mehsulu yeniden silmek mumkun deyil", "Melumat", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                return;
-                            }
-
-                            product.ProductStatus = (int)ProductStatus.Deleted;
-                            _unitOfWork.Products.Update(product);
-                            break;
-                        }
-                    }
-                }
-            }
-
 
 
             LoadAllProducts();
             LoadPersonalProducts();
             LoadPersonalPurchases();
             LoadPersonalSales();
+            LoadAdminFeedbacks();
         }
 
         private void txb_my_products_search_TextChanged(object sender, EventArgs e)
@@ -508,6 +499,7 @@ namespace ShopApp.Controls
                     LoadPersonalProducts();
                     LoadPersonalPurchases();
                     LoadPersonalSales();
+                    LoadAdminFeedbacks();
                 }
             }
         }

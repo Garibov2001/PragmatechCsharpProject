@@ -33,6 +33,52 @@ namespace ShopApp.Areas.AdminPage
             LoadFeedbacks();
             LoadBuysSells();
             FillSearchCategories(cmb_products_search);
+            LoadAllCategories();
+        }
+        public void LoadAllCategories(Expression<Func<ProductCategory, bool>> expression = null)
+        {
+            var categories = expression == null
+                ? _unitOfWork.ProductCategories.GetAll()
+                : _unitOfWork.ProductCategories.GetAll(expression);
+
+            List<dynamic> wholeCategories = new List<dynamic>();
+
+            foreach (var category in categories)
+            {
+                wholeCategories.Add(new
+                {
+                    ID = category.ID,
+                    CategoryName = category.Name,                    
+                });
+            }
+            // Hide the id in the grid
+
+            // Hide the id in the grid
+            dgw_categories.Columns.Clear();
+            dgw_categories.DataSource = wholeCategories;
+
+            //Because of out of index exception
+            if (dgw_categories.Columns.Count > 0)
+            {
+                dgw_categories.Columns[0].Visible = false;
+
+                //Edit Button:
+                DataGridViewButtonColumn editBtn = new DataGridViewButtonColumn();
+                editBtn.HeaderText = "Editlemek";
+                editBtn.Name = "edit_btn";
+                editBtn.Text = "Edit";
+                editBtn.UseColumnTextForButtonValue = true;
+
+                dgw_categories.Columns.Add(editBtn);
+                //Remove Button:
+                DataGridViewButtonColumn deleteBtn = new DataGridViewButtonColumn();
+                deleteBtn.HeaderText = "Silmek";
+                deleteBtn.Name = "delete_btn";
+                deleteBtn.Text = "Sil";
+                deleteBtn.UseColumnTextForButtonValue = true;
+
+                dgw_categories.Columns.Add(deleteBtn);
+            }
         }
 
         public void LoadBuysSells(Expression<Func<PurchaseLog, bool>> expression = null)
@@ -275,6 +321,34 @@ namespace ShopApp.Areas.AdminPage
 
                 LoadProducts();
             }
+        }
+
+        private void dgw_categories_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewButtonCell buttonCell = dgv.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+
+                //Check button:
+                if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "edit_btn")
+                {
+                    var categoryID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    var category = _unitOfWork.ProductCategories.Get(x => x.ID == categoryID);
+                    MessageBox.Show("Edit");
+                }
+                else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
+                {
+                    var categoryID = (int)dgv.CurrentRow.Cells["ID"].Value;
+                    var category = _unitOfWork.ProductCategories.Get(x => x.ID == categoryID);
+                    MessageBox.Show("Delete");
+
+                }
+
+                LoadAllCategories();
+            }
+
         }
     }
 }

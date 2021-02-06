@@ -40,16 +40,21 @@
             this.dgw_products = new System.Windows.Forms.DataGridView();
             this.myPurchases = new System.Windows.Forms.TabPage();
             this.dgw_buyssells = new System.Windows.Forms.DataGridView();
-            this.adminFeedbacks = new System.Windows.Forms.TabPage();
+            this.tp_categories = new System.Windows.Forms.TabPage();
             this.tp_feedbacks = new System.Windows.Forms.TabPage();
             this.dgw_feedbacks = new System.Windows.Forms.DataGridView();
+            this.dgw_categories = new System.Windows.Forms.DataGridView();
+            this.lbl_category = new System.Windows.Forms.Label();
+            this.btn_addCtegory = new System.Windows.Forms.Button();
             this.management.SuspendLayout();
             this.products_management.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_products)).BeginInit();
             this.myPurchases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_buyssells)).BeginInit();
+            this.tp_categories.SuspendLayout();
             this.tp_feedbacks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_feedbacks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_name_surname
@@ -66,7 +71,7 @@
             // 
             this.management.Controls.Add(this.products_management);
             this.management.Controls.Add(this.myPurchases);
-            this.management.Controls.Add(this.adminFeedbacks);
+            this.management.Controls.Add(this.tp_categories);
             this.management.Controls.Add(this.tp_feedbacks);
             this.management.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.management.Location = new System.Drawing.Point(12, 48);
@@ -176,15 +181,18 @@
             this.dgw_buyssells.Size = new System.Drawing.Size(734, 347);
             this.dgw_buyssells.TabIndex = 0;
             // 
-            // adminFeedbacks
+            // tp_categories
             // 
-            this.adminFeedbacks.Location = new System.Drawing.Point(4, 25);
-            this.adminFeedbacks.Name = "adminFeedbacks";
-            this.adminFeedbacks.Padding = new System.Windows.Forms.Padding(3);
-            this.adminFeedbacks.Size = new System.Drawing.Size(768, 361);
-            this.adminFeedbacks.TabIndex = 4;
-            this.adminFeedbacks.Text = "Kategoriya əlavə et";
-            this.adminFeedbacks.UseVisualStyleBackColor = true;
+            this.tp_categories.Controls.Add(this.btn_addCtegory);
+            this.tp_categories.Controls.Add(this.lbl_category);
+            this.tp_categories.Controls.Add(this.dgw_categories);
+            this.tp_categories.Location = new System.Drawing.Point(4, 25);
+            this.tp_categories.Name = "tp_categories";
+            this.tp_categories.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_categories.Size = new System.Drawing.Size(768, 361);
+            this.tp_categories.TabIndex = 4;
+            this.tp_categories.Text = "Kategoriya əlavə et";
+            this.tp_categories.UseVisualStyleBackColor = true;
             // 
             // tp_feedbacks
             // 
@@ -205,6 +213,34 @@
             this.dgw_feedbacks.Size = new System.Drawing.Size(721, 298);
             this.dgw_feedbacks.TabIndex = 0;
             // 
+            // dgw_categories
+            // 
+            this.dgw_categories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_categories.Location = new System.Drawing.Point(31, 28);
+            this.dgw_categories.Name = "dgw_categories";
+            this.dgw_categories.Size = new System.Drawing.Size(516, 156);
+            this.dgw_categories.TabIndex = 0;
+            this.dgw_categories.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_categories_CellContentClick);
+            // 
+            // lbl_category
+            // 
+            this.lbl_category.AutoSize = true;
+            this.lbl_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_category.Location = new System.Drawing.Point(26, 235);
+            this.lbl_category.Name = "lbl_category";
+            this.lbl_category.Size = new System.Drawing.Size(687, 25);
+            this.lbl_category.TabIndex = 5;
+            this.lbl_category.Text = "Qeyd : Əgər kategoriyanı silsəz həmin kategoriyaya aid productlar da silinəcək";
+            // 
+            // btn_addCtegory
+            // 
+            this.btn_addCtegory.Location = new System.Drawing.Point(592, 90);
+            this.btn_addCtegory.Name = "btn_addCtegory";
+            this.btn_addCtegory.Size = new System.Drawing.Size(159, 40);
+            this.btn_addCtegory.TabIndex = 6;
+            this.btn_addCtegory.Text = "Kategoriya əlavə et";
+            this.btn_addCtegory.UseVisualStyleBackColor = true;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,8 +257,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_products)).EndInit();
             this.myPurchases.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_buyssells)).EndInit();
+            this.tp_categories.ResumeLayout(false);
+            this.tp_categories.PerformLayout();
             this.tp_feedbacks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_feedbacks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_categories)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,8 +280,11 @@
         private System.Windows.Forms.DataGridView dgw_products;
         private System.Windows.Forms.TabPage myPurchases;
         private System.Windows.Forms.DataGridView dgw_buyssells;
-        private System.Windows.Forms.TabPage adminFeedbacks;
+        private System.Windows.Forms.TabPage tp_categories;
         private System.Windows.Forms.TabPage tp_feedbacks;
         private System.Windows.Forms.DataGridView dgw_feedbacks;
+        private System.Windows.Forms.Button btn_addCtegory;
+        private System.Windows.Forms.Label lbl_category;
+        private System.Windows.Forms.DataGridView dgw_categories;
     }
 }
