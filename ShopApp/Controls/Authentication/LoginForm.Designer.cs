@@ -35,6 +35,7 @@
             this.lbl_password = new System.Windows.Forms.Label();
             this.txb_password = new System.Windows.Forms.TextBox();
             this.btn_register = new System.Windows.Forms.Button();
+            this.btn_admPanel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_welcome
@@ -105,11 +106,22 @@
             this.btn_register.UseVisualStyleBackColor = true;
             this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
             // 
+            // btn_admPanel
+            // 
+            this.btn_admPanel.Location = new System.Drawing.Point(689, 410);
+            this.btn_admPanel.Name = "btn_admPanel";
+            this.btn_admPanel.Size = new System.Drawing.Size(99, 28);
+            this.btn_admPanel.TabIndex = 6;
+            this.btn_admPanel.Text = "Admin Panel";
+            this.btn_admPanel.UseVisualStyleBackColor = true;
+            this.btn_admPanel.Click += new System.EventHandler(this.btn_admPanel_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_admPanel);
             this.Controls.Add(this.btn_register);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.txb_password);
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.TextBox txb_password;
         private System.Windows.Forms.Button btn_register;
+        private System.Windows.Forms.Button btn_admPanel;
     }
 }

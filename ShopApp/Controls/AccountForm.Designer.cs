@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.management = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btn_all_products_refresh = new System.Windows.Forms.Button();
             this.btn_all_products_detailed_search = new System.Windows.Forms.Button();
@@ -51,23 +51,35 @@
             this.lbl_phone = new System.Windows.Forms.Label();
             this.btn_exit = new System.Windows.Forms.Button();
             this.lbl_balance = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.myPurchases = new System.Windows.Forms.TabPage();
+            this.mySales = new System.Windows.Forms.TabPage();
+            this.dgw_myPurchases = new System.Windows.Forms.DataGridView();
+            this.dgw_mySales = new System.Windows.Forms.DataGridView();
+            this.adminFeedbacks = new System.Windows.Forms.TabPage();
+            this.management.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
             this.pg_myProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myProducts)).BeginInit();
+            this.myPurchases.SuspendLayout();
+            this.mySales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // management
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.pg_myProducts);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 133);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 418);
-            this.tabControl1.TabIndex = 0;
+            this.management.Controls.Add(this.tabPage1);
+            this.management.Controls.Add(this.pg_myProducts);
+            this.management.Controls.Add(this.myPurchases);
+            this.management.Controls.Add(this.mySales);
+            this.management.Controls.Add(this.adminFeedbacks);
+            this.management.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.management.Location = new System.Drawing.Point(12, 133);
+            this.management.Name = "management";
+            this.management.SelectedIndex = 0;
+            this.management.Size = new System.Drawing.Size(776, 418);
+            this.management.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -297,6 +309,54 @@
             this.lbl_balance.TabIndex = 5;
             this.lbl_balance.Text = "Balans : ";
             // 
+            // myPurchases
+            // 
+            this.myPurchases.Controls.Add(this.dgw_myPurchases);
+            this.myPurchases.Location = new System.Drawing.Point(4, 25);
+            this.myPurchases.Name = "myPurchases";
+            this.myPurchases.Padding = new System.Windows.Forms.Padding(3);
+            this.myPurchases.Size = new System.Drawing.Size(768, 389);
+            this.myPurchases.TabIndex = 2;
+            this.myPurchases.Text = "Alışlarım";
+            this.myPurchases.UseVisualStyleBackColor = true;
+            // 
+            // mySales
+            // 
+            this.mySales.Controls.Add(this.dgw_mySales);
+            this.mySales.Location = new System.Drawing.Point(4, 25);
+            this.mySales.Name = "mySales";
+            this.mySales.Padding = new System.Windows.Forms.Padding(3);
+            this.mySales.Size = new System.Drawing.Size(768, 389);
+            this.mySales.TabIndex = 3;
+            this.mySales.Text = "Satışlarım";
+            this.mySales.UseVisualStyleBackColor = true;
+            // 
+            // dgw_myPurchases
+            // 
+            this.dgw_myPurchases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_myPurchases.Location = new System.Drawing.Point(15, 18);
+            this.dgw_myPurchases.Name = "dgw_myPurchases";
+            this.dgw_myPurchases.Size = new System.Drawing.Size(734, 347);
+            this.dgw_myPurchases.TabIndex = 0;
+            // 
+            // dgw_mySales
+            // 
+            this.dgw_mySales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_mySales.Location = new System.Drawing.Point(19, 20);
+            this.dgw_mySales.Name = "dgw_mySales";
+            this.dgw_mySales.Size = new System.Drawing.Size(727, 343);
+            this.dgw_mySales.TabIndex = 0;
+            // 
+            // adminFeedbacks
+            // 
+            this.adminFeedbacks.Location = new System.Drawing.Point(4, 25);
+            this.adminFeedbacks.Name = "adminFeedbacks";
+            this.adminFeedbacks.Padding = new System.Windows.Forms.Padding(3);
+            this.adminFeedbacks.Size = new System.Drawing.Size(768, 389);
+            this.adminFeedbacks.TabIndex = 4;
+            this.adminFeedbacks.Text = "Admindən feedbacklər";
+            this.adminFeedbacks.UseVisualStyleBackColor = true;
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,18 +367,22 @@
             this.Controls.Add(this.lbl_phone);
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.lbl_name_surname);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.management);
             this.Name = "AccountForm";
             this.Text = "AccountForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AccountForm_FormClosing);
             this.Load += new System.EventHandler(this.AccountForm_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.management.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).EndInit();
             this.pg_myProducts.ResumeLayout(false);
             this.pg_myProducts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myProducts)).EndInit();
+            this.myPurchases.ResumeLayout(false);
+            this.mySales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +390,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl management;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage pg_myProducts;
         private System.Windows.Forms.Label lbl_name_surname;
@@ -349,5 +413,10 @@
         private System.Windows.Forms.Button btn_my_products_refresh;
         private System.Windows.Forms.Button btn_all_products_refresh;
         private System.Windows.Forms.Label lbl_balance;
+        private System.Windows.Forms.TabPage myPurchases;
+        private System.Windows.Forms.TabPage mySales;
+        private System.Windows.Forms.DataGridView dgw_myPurchases;
+        private System.Windows.Forms.DataGridView dgw_mySales;
+        private System.Windows.Forms.TabPage adminFeedbacks;
     }
 }

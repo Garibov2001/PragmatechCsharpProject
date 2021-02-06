@@ -1,4 +1,6 @@
-﻿using ShopApp.DataAccessLayer;
+﻿using ShopApp.Areas.AdminPage.Authentication;
+using ShopApp.DataAccessLayer;
+using ShopApp.Utilities.Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +30,7 @@ namespace ShopApp.Controls.Authentication
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            var user = unitOfWork.Users.CheckAccount(txb_password.Text, txb_email.Text);
+            var user = CustomerLoginFormValidation.CheckAccount(txb_password.Text, txb_email.Text);
 
             if (user == null)
             {
@@ -42,6 +44,12 @@ namespace ShopApp.Controls.Authentication
 
             var accountForm = new AccountForm(this);
             accountForm.Show();
+        }
+
+        private void btn_admPanel_Click(object sender, EventArgs e)
+        {
+            var adminFrom = new AdminLoginForm(this);
+            adminFrom.Show();
         }
     }
 

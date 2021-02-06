@@ -30,8 +30,82 @@ namespace ShopApp.Controls
             InitializeComponent();
             FillSearchCategories(cmb_my_products_search);
             FillSearchCategories(cmb_all_products_search);
+            LoadPersonalPurchases();
+            LoadPersonalSales();
         }
 
+        private void LoadPersonalSales()
+        {
+            var products = _unitOfWork.Products.GetAll(x => x.UserID == CurrentUser.ID);
+            IEnumerable<int> extract = from product in products select product.ID;
+            var purchases = _unitOfWork.PurchaseLogs.GetAll(x => extract.Contains(x.ProductID));
+
+            List<dynamic> wholePurchases = new List<dynamic>();
+
+            foreach (var purchase in purchases)
+            {
+                var product = _unitOfWork.Products.Get(x => x.ID == purchase.ProductID);
+                var buyer = _unitOfWork.Users.Get(x => x.ID == purchase.UserID);
+
+                wholePurchases.Add(new
+                {
+                    ID = purchase.ID,
+                    ProductName = product.Name,
+                    ProductCategory = _unitOfWork.ProductCategories.Get(x => x.ID == product.ProductCategoryID).Name,
+                    ProductPrice = product.Price,
+                    PurchaseCount = 1,
+                    Buyer = buyer.Name + " " + buyer.Surname,
+                    BuyerTel = buyer.PhoneNumber,
+                    PurchaseDate = purchase.PurchaseDate.Date
+                });
+            }
+            // Hide the id in the grid
+
+            // Hide the id in the grid
+            dgw_mySales.Columns.Clear();
+            dgw_mySales.DataSource = wholePurchases;
+
+            if (dgw_mySales.Columns.Count > 0)
+            {
+                dgw_mySales.Columns[0].Visible = false;
+            }
+        }
+
+
+        private void LoadPersonalPurchases()
+        {
+            var purchases = _unitOfWork.PurchaseLogs.GetAll(x => x.UserID == CurrentUser.ID);
+
+            List<dynamic> wholePurchases = new List<dynamic>();
+
+            foreach (var purchase in purchases)
+            {
+                var product = _unitOfWork.Products.Get(x => x.ID == purchase.ProductID);
+                var seller = _unitOfWork.Users.Get(x => x.ID == product.UserID);
+
+                wholePurchases.Add(new
+                {
+                    ID = purchase.ID,
+                    ProductName = product.Name,
+                    ProductCategory = _unitOfWork.ProductCategories.Get(x => x.ID == product.ProductCategoryID).Name,
+                    ProductPrice = product.Price,
+                    PurchaseCount = 1,
+                    Seller = seller.Name + " " + seller.Surname,
+                    SellerTel = seller.PhoneNumber,
+                    PurchaseDate = purchase.PurchaseDate.Date
+                });
+            }
+            // Hide the id in the grid
+
+            // Hide the id in the grid
+            dgw_myPurchases.Columns.Clear();
+            dgw_myPurchases.DataSource = wholePurchases;
+
+            if (dgw_myPurchases.Columns.Count > 0)
+            {
+                dgw_myPurchases.Columns[0].Visible = false;
+            }
+        }
         private void FillSearchCategories(ComboBox argController)
         {
             argController.Items.Add(new ComboboxItem { Value = -1, Text = " -- Bütün məhsullar --" });
@@ -368,7 +442,7 @@ namespace ShopApp.Controls
                     var purchLog = new PurchaseLog
                     {
                         ProductID = product.ID,
-                        User = buyer,
+                        UserID = buyer.ID,
                         PurchaseDate = DateTime.Now,
                     };
 
@@ -379,7 +453,8 @@ namespace ShopApp.Controls
 
                     LoadAllProducts();
                     LoadPersonalProducts();
-
+                    LoadPersonalPurchases();
+                    LoadPersonalSales();
                 }
             }            
         }
