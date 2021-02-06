@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopApp.Entities.Conrete.Product
 {
-    public class OperationLogs : IEntity
+    public class OperationLog : IEntity
     {
         public int ID { get; set; }
         public int OperationStatus { get; set; }

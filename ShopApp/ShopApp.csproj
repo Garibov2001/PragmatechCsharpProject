@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="DataAccessLayer\Abstract\IEntityRepositoryBase.cs" />
     <Compile Include="DataAccessLayer\Concrete\EntityRepositoryBase.cs" />
+    <Compile Include="DataAccessLayer\Concrete\OperationLogDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\ProductCategoryDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\ProductDal.cs" />
     <Compile Include="DataAccessLayer\Concrete\PurchaseLogDal.cs" />
@@ -137,7 +138,7 @@
     <Compile Include="Entities\Conrete\Authentication\Role.cs" />
     <Compile Include="Entities\Conrete\Authentication\User.cs" />
     <Compile Include="Entities\Conrete\Authentication\UserRole.cs" />
-    <Compile Include="Entities\Conrete\Product\OperationLogs.cs" />
+    <Compile Include="Entities\Conrete\Product\OperationLog.cs" />
     <Compile Include="Entities\Conrete\Product\Product.cs" />
     <Compile Include="Entities\Conrete\Product\ProductCategory.cs" />
     <Compile Include="Entities\Conrete\Product\PurchaseLog.cs" />
@@ -162,6 +163,10 @@
     <Compile Include="Migrations\202102032057598_purchaseInit.cs" />
     <Compile Include="Migrations\202102032057598_purchaseInit.designer.cs">
       <DependentUpon>202102032057598_purchaseInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102061254329_operationsLogs.cs" />
+    <Compile Include="Migrations\202102061254329_operationsLogs.designer.cs">
+      <DependentUpon>202102061254329_operationsLogs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -217,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102032057598_purchaseInit.resx">
       <DependentUpon>202102032057598_purchaseInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061254329_operationsLogs.resx">
+      <DependentUpon>202102061254329_operationsLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
