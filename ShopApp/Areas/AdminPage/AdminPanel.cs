@@ -336,7 +336,9 @@ namespace ShopApp.Areas.AdminPage
                 {
                     var categoryID = (int)dgv.CurrentRow.Cells["ID"].Value;
                     var category = _unitOfWork.ProductCategories.Get(x => x.ID == categoryID);
-                    MessageBox.Show("Edit");
+
+                    var editCate = new AdmEditCategoryForm(category);
+                    editCate.ShowDialog();
                 }
                 else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
                 {
@@ -346,6 +348,9 @@ namespace ShopApp.Areas.AdminPage
 
                 }
 
+                LoadProducts();
+                LoadFeedbacks();
+                LoadBuysSells();
                 LoadAllCategories();
             }
 
