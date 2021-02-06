@@ -13,6 +13,7 @@ namespace ShopApp.Entities.Conrete.Product
         public int ID { get; set; }
         public int OperationStatus { get; set; }
         public DateTime OperationDate { get; set; }
+        public string OperationDescription { get; set; }
 
         //Reference to product:
         public int ProductID { get; set; }

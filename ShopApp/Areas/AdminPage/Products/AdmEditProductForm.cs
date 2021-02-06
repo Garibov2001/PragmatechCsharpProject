@@ -76,8 +76,31 @@ namespace ShopApp.Areas.AdminPage.Products
                 return;
             }
 
-            
+            var edittedProduct = new Product
+            {
+                ID = _product.ID,
+                Name = txb_edit_name.Text,
+                Count = Convert.ToInt32(txb_edit_count.Text),
+                Price = Convert.ToInt32(txb_edit_price.Text),
+                ProductCategoryID = (int)(cmb_edit_category.SelectedItem as ComboboxItem).Value,
+                UserID = _product.UserID,
+                ProductStatus = (int)(cmb_edit_status.SelectedItem as ComboboxItem).Value,
+            };
 
+            var newLog = new OperationLog
+            {
+                OperationDate = DateTime.Now,
+                ProductID = _product.ID,
+                UserID = AdminPanel.CurrentUser.ID,
+                OperationDescription = rtb_reason.Text,
+                OperationStatus = (int)OperationStatus.Edit
+            };
+
+            _unitOfWork.Products.Update(edittedProduct);
+
+            _unitOfWork.OperationLogs.Create(newLog);
+
+            this.Close();
         }
     }
 }

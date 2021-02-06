@@ -55,6 +55,7 @@
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_phone = new System.Windows.Forms.Label();
             this.lbl_balance = new System.Windows.Forms.Label();
+            this.dgw_admin_feedbacks = new System.Windows.Forms.DataGridView();
             this.management.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_allProducts)).BeginInit();
@@ -64,6 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).BeginInit();
             this.mySales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).BeginInit();
+            this.adminFeedbacks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_admin_feedbacks)).BeginInit();
             this.SuspendLayout();
             // 
             // management
@@ -297,6 +300,7 @@
             // 
             // adminFeedbacks
             // 
+            this.adminFeedbacks.Controls.Add(this.dgw_admin_feedbacks);
             this.adminFeedbacks.Location = new System.Drawing.Point(4, 25);
             this.adminFeedbacks.Name = "adminFeedbacks";
             this.adminFeedbacks.Padding = new System.Windows.Forms.Padding(3);
@@ -345,6 +349,14 @@
             this.lbl_balance.TabIndex = 5;
             this.lbl_balance.Text = "Balans : ";
             // 
+            // dgw_admin_feedbacks
+            // 
+            this.dgw_admin_feedbacks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgw_admin_feedbacks.Location = new System.Drawing.Point(18, 28);
+            this.dgw_admin_feedbacks.Name = "dgw_admin_feedbacks";
+            this.dgw_admin_feedbacks.Size = new System.Drawing.Size(729, 331);
+            this.dgw_admin_feedbacks.TabIndex = 0;
+            // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_myPurchases)).EndInit();
             this.mySales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_mySales)).EndInit();
+            this.adminFeedbacks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_admin_feedbacks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,5 +418,6 @@
         private System.Windows.Forms.DataGridView dgw_myPurchases;
         private System.Windows.Forms.DataGridView dgw_mySales;
         private System.Windows.Forms.TabPage adminFeedbacks;
+        private System.Windows.Forms.DataGridView dgw_admin_feedbacks;
     }
 }

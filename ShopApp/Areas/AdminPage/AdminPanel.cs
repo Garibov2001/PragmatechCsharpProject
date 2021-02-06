@@ -30,8 +30,95 @@ namespace ShopApp.Areas.AdminPage
             LoginForm.Hide();
             InitializeComponent();
             LoadProducts();
+            LoadFeedbacks();
+            LoadBuysSells();
             FillSearchCategories(cmb_products_search);
         }
+
+        public void LoadBuysSells(Expression<Func<PurchaseLog, bool>> expression = null)
+        {
+            var purchases = expression == null
+                ? _unitOfWork.PurchaseLogs.GetAll()
+                : _unitOfWork.PurchaseLogs.GetAll(expression);
+
+            List<dynamic> wholePurchases = new List<dynamic>();
+
+            foreach (var purchase in purchases)
+            {
+                var product = _unitOfWork.Products.Get(x => x.ID == purchase.ProductID);
+                var seller = _unitOfWork.Users.Get(x => x.ID == product.UserID);
+                var buyer = _unitOfWork.Users.Get(x => x.ID == purchase.UserID);
+                var product_category = _unitOfWork.ProductCategories.Get(x => x.ID == product.ProductCategoryID);
+
+                wholePurchases.Add(new
+                {
+                    ID = product.ID,
+                    ProductName = product.Name,
+                    ProductCategory = product_category.Name,
+                    ProductPrice = product.Price,
+                    ProductCount = product.Count,
+                    ProductStatus = (ProductStatus)product.ProductStatus,
+                    Buyer = buyer.Name + " " + buyer.Surname,
+                    Seller = seller.Name + " " + seller.Surname,
+                    PurchaseDate = purchase.PurchaseDate,
+                });
+            }
+            // Hide the id in the grid
+
+            // Hide the id in the grid
+            dgw_buyssells.Columns.Clear();
+            dgw_buyssells.DataSource = wholePurchases;
+
+            //Because of out of index exception
+            if (dgw_buyssells.Columns.Count > 0)
+            {
+                dgw_buyssells.Columns[0].Visible = false;
+            }
+        }
+
+
+        public void LoadFeedbacks(Expression<Func<OperationLog, bool>> expression = null)
+        {
+            var logs = expression == null
+                ? _unitOfWork.OperationLogs.GetAll()
+                : _unitOfWork.OperationLogs.GetAll(expression);
+
+            List<dynamic> wholeLogs = new List<dynamic>();
+
+            foreach (var log in logs)
+            {
+                var product = _unitOfWork.Products.Get(x => x.ID == log.ProductID);
+                var product_owner = _unitOfWork.Users.Get(x => x.ID == product.UserID);
+                var product_category = _unitOfWork.ProductCategories.Get(x => x.ID == product.ProductCategoryID);
+
+
+                wholeLogs.Add(new
+                {
+                    ID = product.ID,
+                    ProductName = product.Name,
+                    ProductCategory = product_category.Name,
+                    ProductPrice = product.Price,
+                    ProductCount = product.Count,
+                    ProductStatus = (ProductStatus)product.ProductStatus,
+                    Owner = product_owner.Name + " " + product_owner.Surname,
+                    OperationDescrip = log.OperationDescription,
+                    OperationStatus = (OperationStatus)log.OperationStatus,
+                    OperationDate = log.OperationDate,
+                });
+            }
+            // Hide the id in the grid
+
+            // Hide the id in the grid
+            dgw_feedbacks.Columns.Clear();
+            dgw_feedbacks.DataSource = wholeLogs;
+
+            //Because of out of index exception
+            if (dgw_feedbacks.Columns.Count > 0)
+            {
+                dgw_feedbacks.Columns[0].Visible = false;               
+            }
+        }
+
         public void LoadProducts(Expression<Func<Product, bool>> expression = null)
         {
             var products = expression == null
@@ -175,9 +262,18 @@ namespace ShopApp.Areas.AdminPage
                 else if (buttonCell != null && dgv.Columns[buttonCell.ColumnIndex].Name == "delete_btn")
                 {
                     var productID = (int)dgv.CurrentRow.Cells["ID"].Value;
-                    MessageBox.Show("Delete btn");
+                    var product = _unitOfWork.Products.Get(x => x.ID == productID);
+                    if (product.ProductStatus == (int)ProductStatus.Deleted)
+                    {
+                        MessageBox.Show("Bu product artiq siliib", "Yalnışlıqların düzəldin.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+
+                    }
+                    var remProdForm = new AdmDeleteProductForm(product);
+                    remProdForm.ShowDialog();
                 }
 
+                LoadProducts();
             }
         }
     }

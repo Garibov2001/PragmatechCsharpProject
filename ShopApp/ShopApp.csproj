@@ -76,6 +76,12 @@
     <Compile Include="Areas\AdminPage\Authentication\AdminLoginForm.Designer.cs">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmDeleteProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Areas\AdminPage\Products\AdmDeleteProductForm.Designer.cs">
+      <DependentUpon>AdmDeleteProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Areas\AdminPage\Products\AdmDetailedSearchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,7 @@
     <Compile Include="Entities\Conrete\Product\ProductCategory.cs" />
     <Compile Include="Entities\Conrete\Product\PurchaseLog.cs" />
     <Compile Include="Entities\Conrete\SalesManagementContext.cs" />
+    <Compile Include="Enums\OperationStatus.cs" />
     <Compile Include="Enums\ProductStatus.cs" />
     <Compile Include="Migrations\202101301554583_authInit.cs" />
     <Compile Include="Migrations\202101301554583_authInit.designer.cs">
@@ -168,6 +175,10 @@
     <Compile Include="Migrations\202102061254329_operationsLogs.designer.cs">
       <DependentUpon>202102061254329_operationsLogs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102061319377_operationLogUpd1.cs" />
+    <Compile Include="Migrations\202102061319377_operationLogUpd1.designer.cs">
+      <DependentUpon>202102061319377_operationLogUpd1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -183,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Authentication\AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Areas\AdminPage\Products\AdmDeleteProductForm.resx">
+      <DependentUpon>AdmDeleteProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Areas\AdminPage\Products\AdmDetailedSearchForm.resx">
       <DependentUpon>AdmDetailedSearchForm.cs</DependentUpon>
@@ -225,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102061254329_operationsLogs.resx">
       <DependentUpon>202102061254329_operationsLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102061319377_operationLogUpd1.resx">
+      <DependentUpon>202102061319377_operationLogUpd1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
