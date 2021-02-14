@@ -1,4 +1,6 @@
-﻿namespace ShopApp
+﻿using System.Windows.Forms;
+
+namespace ShopApp
 {
     partial class ProductsForm
     {
@@ -43,21 +45,21 @@
             // 
             // txb_id
             // 
-            this.txb_id.Location = new System.Drawing.Point(105, 45);
+            this.txb_id.Location = new System.Drawing.Point(122, 84);
             this.txb_id.Name = "txb_id";
             this.txb_id.Size = new System.Drawing.Size(100, 20);
             this.txb_id.TabIndex = 0;
             // 
             // txb_price
             // 
-            this.txb_price.Location = new System.Drawing.Point(105, 139);
+            this.txb_price.Location = new System.Drawing.Point(122, 178);
             this.txb_price.Name = "txb_price";
             this.txb_price.Size = new System.Drawing.Size(100, 20);
             this.txb_price.TabIndex = 1;
             // 
             // txb_name
             // 
-            this.txb_name.Location = new System.Drawing.Point(105, 89);
+            this.txb_name.Location = new System.Drawing.Point(122, 128);
             this.txb_name.Name = "txb_name";
             this.txb_name.Size = new System.Drawing.Size(100, 20);
             this.txb_name.TabIndex = 2;
@@ -65,7 +67,7 @@
             // label_id
             // 
             this.label_id.AutoSize = true;
-            this.label_id.Location = new System.Drawing.Point(31, 48);
+            this.label_id.Location = new System.Drawing.Point(48, 87);
             this.label_id.Name = "label_id";
             this.label_id.Size = new System.Drawing.Size(18, 13);
             this.label_id.TabIndex = 3;
@@ -74,7 +76,7 @@
             // Name
             // 
             this.Name.AutoSize = true;
-            this.Name.Location = new System.Drawing.Point(31, 92);
+            this.Name.Location = new System.Drawing.Point(48, 131);
             this.Name.Name = "Name";
             this.Name.Size = new System.Drawing.Size(35, 13);
             this.Name.TabIndex = 4;
@@ -83,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 142);
+            this.label1.Location = new System.Drawing.Point(48, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 5;
@@ -107,6 +109,7 @@
             this.btn_create.TabIndex = 7;
             this.btn_create.Text = "Create";
             this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // btn_update
             // 
@@ -116,6 +119,7 @@
             this.btn_update.TabIndex = 8;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -125,6 +129,7 @@
             this.btn_delete.TabIndex = 9;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // rtb_resul
             // 
@@ -134,7 +139,7 @@
             this.rtb_resul.TabIndex = 10;
             this.rtb_resul.Text = "";
             // 
-            // Products
+            // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

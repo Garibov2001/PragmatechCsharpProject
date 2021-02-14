@@ -13,9 +13,9 @@ namespace ShopApp.DataAccessLayer
     {
         private string _conntectionString;
         private SqlConnection _sqlConnection;
-        public Database(string databaseName)
+        public Database()
         {
-            _conntectionString = ConfigurationManager.ConnectionStrings[databaseName].ConnectionString; ;
+            _conntectionString = ConfigurationManager.ConnectionStrings["MyDatabase"].ConnectionString; ;
             _sqlConnection = new SqlConnection(_conntectionString);
         }
 
@@ -56,6 +56,58 @@ namespace ShopApp.DataAccessLayer
 
             return products;
         }
-        
+
+        public void CreateProduct(string name, int price)
+        {
+            try
+            {
+                _sqlConnection.Open();
+                string query = "INSERT INTO Product (Name, Price)" +
+                    $"VALUES ('{name}', {price})";
+                using (SqlCommand command = new SqlCommand(query, _sqlConnection))
+                {
+                    int rows = command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException exp)
+            {
+                throw exp;
+            }
+        }
+
+        public void UpdateProduct(int id, string name, int price)
+        {
+            try
+            {
+                _sqlConnection.Open();
+                string query = $"UPDATE Product SET Name = '{name}', Price = {price} WHERE ID = {id};" ;
+                using (SqlCommand command = new SqlCommand(query, _sqlConnection))
+                {
+                    int rows = command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException exp)
+            {
+                throw exp;
+            }
+        }
+   
+        public void DeleteProduct(int id)
+        {
+            try
+            {
+                _sqlConnection.Open();
+                string query = $"DELETE FROM Product WHERE ID = {id};";
+                using (SqlCommand command = new SqlCommand(query, _sqlConnection))
+                {
+                    int rows = command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException exp)
+            {
+                throw exp;
+            }
+        }
+    
     }
 }
